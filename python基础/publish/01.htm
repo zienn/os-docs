@@ -1,0 +1,879 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 0.9.8-3
+    site: https://github.com/ksky521/nodePPT
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>python_01_python基础 - By </title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt2.0.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    <link rel="stylesheet" media="print" href="./css/pdf.css">
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>python基础教程_01_python基础</h1>
+<p><small>woniuppp</small></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>选择即改变</h2>
+
+</hgroup><article>
+
+<h3>开发的路其实不好走</h3>
+<ul>
+<li>编程本身就很难</li>
+<li>周六来听课很辛苦</li>
+<li>来了reboot，一定有收获</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>为什么要学编程</h2>
+
+</hgroup><article>
+
+<h3>传统运维(测试，技术支持)现状</h3>
+<ul>
+<li>一般运维做两三年，会有瓶颈</li>
+<li>大公司运维的现状</li>
+<li>云的发展，只运维，不会开发，饭碗被抢</li>
+<li>容易被开发绑架</li>
+<li>开源软件也需要定制性开发</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>为什么要学python</h2>
+
+</hgroup><article>
+
+<p><img src="../01/python_info1.png" alt="Alt text"></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>语言对比</h2>
+
+</hgroup><article>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语言</th>
+<th style="text-align:center">优点</th>
+<th style="text-align:center">缺点 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">C/C++</td>
+<td style="text-align:center">性能,游戏,底层</td>
+<td style="text-align:center">代码量大，上手难</td>
+</tr>
+<tr>
+<td style="text-align:left">java</td>
+<td style="text-align:center">明星级语言，比较成熟</td>
+<td style="text-align:center">不太好上手，代码量大，开发速度慢</td>
+</tr>
+<tr>
+<td style="text-align:left">.net/c#</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">过时了</td>
+</tr>
+<tr>
+<td style="text-align:left">shell</td>
+<td style="text-align:center">简单的系统维护</td>
+<td style="text-align:center">不能算是一门编程语言</td>
+</tr>
+<tr>
+<td style="text-align:left">php</td>
+<td style="text-align:center">易学，脚本</td>
+<td style="text-align:center">主要适合web</td>
+</tr>
+<tr>
+<td style="text-align:left">python</td>
+<td style="text-align:center">易学，脚本，功能强大</td>
+<td style="text-align:center">运行速度比java慢</td>
+</tr>
+<tr>
+<td style="text-align:left">javascript</td>
+<td style="text-align:center">易学，前端</td>
+<td style="text-align:center">前端脚本语言</td>
+</tr>
+</tbody>
+</table>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>为什么要学python</h2>
+
+</hgroup><article>
+
+<h3>我们需要的语言是什么样的</h3>
+<ul>
+<li>上手简单</li>
+<li>功能健全</li>
+<li>语言生态系统完善，第三方库多</li>
+<li>有大公司成功的案例</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>hello python</h2>
+
+</hgroup><article>
+
+<ul>
+<li>上手简单</li>
+<li>脚本 游戏 图形化 web 爬虫 你能想到的方方面面</li>
+<li>github上 python项目足够多</li>
+<li>google FB dropbox 豆瓣 知乎 bat</li>
+<li>运行速度不是瓶颈</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>python的历史--蛇叔的情怀</h2>
+
+</hgroup><article>
+
+<p><img src="../01/python_info2.png" alt="Alt text"></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>python的历史</h2>
+
+</hgroup><article>
+
+<ul>
+<li>有一个任务，知道用C怎么完成功能，但是代码量太大</li>
+<li>shell太简单，不能完成复杂的功能</li>
+<li>为了打发圣诞节假期，Guido开始写自己的语言</li>
+<li>Guido是Monty Python（一个喜剧马戏团）的脑残粉，于是命名python（大蟒蛇）</li>
+<li>个人电脑和internet开始发展，硬件不再是瓶颈，开发速度快成为优势</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>实战课程目标</h2>
+
+</hgroup><article>
+
+<ul>
+<li>python的基础，掌握基本的编程思想，具体两个任务</li>
+<li><p>access_log日式处理</p>
+<ul>
+<li>url，ip，访问状态维度，统计访问次数</li>
+<li>排序，打印出访问次数最多的前10</li>
+</ul>
+</li>
+<li><p>简单的cmdb</p>
+<ul>
+<li>基于flask</li>
+<li>数据库mysql</li>
+<li>前端jquery+bootstrap</li>
+<li>简单粗暴的完成最简单的增删改查</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>学习编程的方法</h2>
+
+</hgroup><article>
+
+<h3>学编程分为两个部分</h3>
+<ul>
+<li>编程的思想<ul>
+<li>怎么用编程的思路考虑问题</li>
+</ul>
+</li>
+<li>具体的编程语言去实现<ul>
+<li>我们选的python</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>入门学习编程的方法</h2>
+
+</hgroup><article>
+
+<ul>
+<li>慢一点 多理解</li>
+<li>多练习，记笔记</li>
+<li>把编程当作工具，去解决问题，编程是手段，不是目的</li>
+<li>碰到问题google baidu</li>
+<li>申请github账号，加入开源社区</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>选择版本-安装</h2>
+
+</hgroup><article>
+
+<h3>2.7和3.0</h3>
+<ul>
+<li>2.7和3.0不兼容，选择2.7</li>
+<li>linux都是自带2.7的</li>
+<li>windows下载安装包安装即可</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>第一个python程序</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+        python
+        >>> print 'hello world'
+        hello world
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>尝试输入其他东西</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+        >>> 2+3
+        5
+
+        >>> print 'hello'+'python'
+        hellopython
+
+        >>> 1+2*4
+        9
+
+        >>>(1+2)*4
+        12
+        >>>exit()
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>更进一步</h2>
+
+</hgroup><article>
+
+<h3>写的文件想保存下载</h3>
+<ul>
+<li>交互式适合学习，不能保存</li>
+<li>新建一个文件,以 hello.py结尾</li>
+<li>选择一个编辑器，在hello.py文件里输入下面内容并保存</li>
+<li><pre><code class="python">
+  print  'hello word'
+  </code></pre></li>
+<li>在文件所在路径，执行 python hello.py</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>关于编辑器</h2>
+
+</hgroup><article>
+
+<h3>不要纠结，学习的时候，哪个顺手就用那个</h3>
+<ul>
+<li>vim 强大学习成本高</li>
+<li>emac 强大学习成本高</li>
+<li>sublime 轻量级，界面漂亮</li>
+<li>nodepad++</li>
+<li>eclipse pycharm等等</li>
+<li>就像学武术一样，入门不要纠结于木剑还是倚天剑</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>vim存活教程</h2>
+
+</hgroup><article>
+
+<ul>
+<li>vim hellp.py</li>
+<li>一开始不能编辑，输入i 可以编辑</li>
+<li>点击esc，回到最初的不能编辑状态</li>
+<li>不能编辑的状态输入 :wq 保存并且退出文件</li>
+<li>把精力放在目的上，而不是工具</li>
+<li>入门阶段，不要在意那些细节</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>内容简介</h2>
+
+</hgroup><article>
+
+<ul>
+<li>变量 语句</li>
+<li>python数据类型</li>
+<li>四则运算</li>
+<li>获取用户的输入</li>
+<li>流程控制</li>
+<li>循环</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>编程的思路</h2>
+
+</hgroup><article>
+
+<h3>一个小栗子--做饭</h3>
+<ul>
+<li>把盐，放到盐罐子里</li>
+<li>然后拿一些番茄和鸡蛋，放盐，放到锅里炒</li>
+<li>如果有特殊的重口，放点辣椒</li>
+<li>最后到炒熟为止---每30秒看一下</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>变量</h2>
+
+</hgroup><article>
+
+<ul>
+<li>定义一个变量，相当于在程序里挖坑，可以放数据</li>
+<li>定义完变量，供以后使用</li>
+<li>相当于起外号<pre><code class="python">
+      x = 'salt'
+      print x
+</code></pre></li>
+<li>上面这个语句，相当于拿了一个罐子X，把&#39;salt&#39;放里面，等我们需要用盐的时候，直接把x这个罐头拿来用就行</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>语句</h2>
+
+</hgroup><article>
+
+<h3>语句，就是做了一件事，一个行为</h3>
+<ul>
+<li>刚才的x=&#39;salt&#39; 就是一个语句</li>
+<li>做了一件事，把salt赋值给x</li>
+<li>print也是一个语句</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>获取用户输入的小栗子</h2>
+
+</hgroup><article>
+
+<p><pre><code class="python">
+        x = raw_input(&#39;please input you name &#39;)
+        print x
+        y = input(&#39;please input &#39;)
+        print y
+</code></pre></p>
+<ul>
+<li>input必须输入完整的python数据 字符串要带引号</li>
+<li>raw_input适合学习</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>注释</h2>
+
+</hgroup><article>
+
+<ul>
+<li>代码不仅是可执行的，还要可读</li>
+<li>代码一行最前面加一个 # 此行内容不会被执行</li>
+<li>方便调试和加上代码解释<pre><code class="python">
+      #coding=utf-8
+      #获取输入的用户名
+      x = raw_input('please input you name ')
+      # print it
+      print x
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>数组结构之数字</h2>
+
+</hgroup><article>
+
+<h3>shell里感受四则运算</h3>
+<pre><code class="python">
+        >>>2+2
+        4
+        >>>1+2*4
+        9
+        >>>4-2
+        2
+        >>>1/2
+        0
+        >>>1.0/2.0
+        0.5
+        >>>10%3
+        1
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>字符串--用单引号或者双引号包起来</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+            >>>print 'hello world'
+            hello world
+            >>>print "hello world"
+            hello world
+            >>>print " I'am woniuppp"
+            I\am woniuppp
+            >>> print 'hello'+' world'
+            hello world
+            >>> x = raw_input('please enter you name ')
+            please enter you name
+            >>> print 'welcome ' + x
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>字符串格式化</h2>
+
+</hgroup><article>
+
+<h3>%s占位符，代表一个字符 语法见代码</h3>
+<pre><code class="python">
+        x = 'woniuppp'
+        y = 'man'
+        print 'my name is' + x + ' and I am a '+ y
+        print 'my name is %s and I am a %s'  %  (x,y)
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>字符串格式化</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+            x = 'woniuppp'
+            y = 180
+            #报错 数字不能和字符串直接想加
+            print 'my name is' + x + ' and I am '+ y + ' cm tall'            
+            # %s 换成%d 占位符 代表一个数字
+            print 'my name is %s and I am %d cm tall'  %  (x,y)
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>小练习1</h2>
+
+</hgroup><article>
+
+<h3>用户输入两个数，求平均值</h3>
+<ul>
+<li>提示 int(str)可以把字符串转成数字类型<pre><code class="python">
+print '2'+'4'
+print 2+'4'
+print 2+int('4')
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>流程控制</h2>
+
+</hgroup><article>
+
+<h3>真和假 True False(首字母大写)</h3>
+<pre><code class="poython">
+>>> 2==3
+False
+>>> 2<3
+True
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>流程控制</h2>
+
+</hgroup><article>
+
+<h3>and    or</h3>
+<ul>
+<li>A and B，‘且’，A和B都是真的时候，才为真，否则是假</li>
+<li>A or B，‘或’，A和B有一个真的时候，就是真，否则是假<pre><code class="python">
+>>> True and False
+False
+>>> True or False
+True
+>>> 3>2 and 4>3
+>>> 3<4 or 2>4
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>流程控制</h2>
+
+</hgroup><article>
+
+<h3>if else 语句 实现逻辑控制</h3>
+<pre><code class="python">
+    if(判断真假):
+        如果是真 执行 （缩进）
+    else：
+        如果是假 执行
+    这里的语句，和if无关 都会执行
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>逻辑控制</h2>
+
+</hgroup><article>
+
+<h3>python是用缩进来判断代码块的，建议直接四个空格</h3>
+<pre><code class="python">
+    x = raw_input('please enter you name ')
+    if x=='WD':
+        print 'you are a nice boy'
+    else:
+        print 'nice to meet you'
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>逻辑控制</h2>
+
+</hgroup><article>
+
+<h3>多层if判断</h3>
+<pre><code class="python">
+            x = raw_input('please enter you name ')
+            if x=='WD':
+                print 'you are a nice boy'
+            elif x=='PC':
+                print 'you are nice too'
+            else:
+                print 'nice to meet you'
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>逻辑控制</h2>
+
+</hgroup><article>
+
+<h3>if可以嵌套多层 (多层缩进)</h3>
+<pre><code class="python">
+            x = raw_input('please enter you name')
+            y = raw_input('please enter your age ')
+            if x == 'WD':
+                if y=='20':
+                    print 'nani'
+                elif y == '10':
+                    print 'interesting'
+                else:
+                    print 'I don"n know'
+            else:
+                print 'not an age'
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>循环--while</h2>
+
+</hgroup><article>
+
+<h3>一直循环执行语句,注意缩进</h3>
+<pre><code class="python">
+
+            #注意缩进
+            while 判断条件:
+                #如果判断条件是真，循环体的语句就会一直执行
+                语句1
+                语句2
+                修改判断条件中的变量，使得循环是可以结束的
+            这里的语句，和wilie无关（缩进）
+
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>循环--while</h2>
+
+</hgroup><article>
+
+<h3> </h3>
+<pre><code class="python">
+            i=0
+            while i<20:
+                print i
+                i = i + 1
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>循环--while</h2>
+
+</hgroup><article>
+
+<h3> </h3>
+<pre><code class="python">
+            name = ''
+            while not name:
+                name = raw_input('please enter you name')
+
+            print 'hello'+name
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>小练习2</h2>
+
+</hgroup><article>
+
+<ul>
+<li>让用户一直输入数字</li>
+<li>如果输入的是&#39;pc&#39;，终止程序</li>
+<li>打印所有数字之和</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>小练习3</h2>
+
+</hgroup><article>
+
+<ul>
+<li>让用户一直输入数字（只输入数字）</li>
+<li>如果没输入任何值，终止程序</li>
+<li>打印所有输入数字的平均值</li>
+<li>小提示：<pre><code class="python">
+>>> 3/2
+>>> 3/2.0
+>>> 1+1.0
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>小练习4</h2>
+
+</hgroup><article>
+
+<ul>
+<li>存10000块钱，年利率是3.25%</li>
+<li>求多少年之后，存款能翻番</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>for循环</h2>
+
+</hgroup><article>
+
+<h3>可以用来遍历一个序列</h3>
+<ul>
+<li>可以先把[&#39;woniuppp&#39;,&#39;WD&#39;,&#39;PC&#39;]理解为一个存好几个数据的序列</li>
+</ul>
+<pre><code class="python">
+        for name in ['woniuppp','WD','PC']:
+            print name
+</code></pre>
+
+<pre><code class="python">
+        for num in range(0,29):
+            print num
+
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>小练习5</h2>
+
+</hgroup><article>
+
+<ul>
+<li>遍历一个序列 [&#39;C&#39;,&#39;js&#39;,&#39;python&#39;,&#39;js&#39;,&#39;css&#39;,&#39;js&#39;,&#39;html&#39;,&#39;node&#39;]</li>
+<li>统计这个序列中，js出现的次数</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>小练习6</h2>
+
+</hgroup><article>
+
+<ul>
+<li>一个序列[1,2,3,2,12,3,1,3,21,2,2,3,4111,22,3333,444,111,4,5,777,65555,45,33,45]</li>
+<li>求这个list的最大值</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>跳出循环</h2>
+
+</hgroup><article>
+
+<h3>break语句，可以跳出循环（for，while）</h3>
+<ul>
+<li>跳出哪个循环，由代码缩进决定<pre><code class="python">
+      for num in range(0,10):
+          if num == 7:
+              #num大于7的时候，结束整个循环
+              break
+          print num
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>break语句，可以当前这一次循环，从下次开始继续循环（for，while）</h2>
+
+</hgroup><article>
+
+<h3> </h3>
+<pre><code class="python">
+        for num in range(0,10):
+            if num == 7:
+                #num等于7的时候，结束当前循环，继续下一次循环，所以8.9还会打印出来
+                continue
+            print num
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>小练习7</h2>
+
+</hgroup><article>
+
+<h3>用户输入数字 判断是不是闰年</h3>
+<ul>
+<li>如果是100的倍数，要被400整除</li>
+<li>被4整除</li>
+<li>比如1900不是闰年，2000，2004是闰年</li>
+<li>如果输入不是闰年，提示信息，并且继续输入</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>dict简介</h2>
+
+</hgroup><article>
+
+<h3>dict 就是key value值，索引有意义</h3>
+<ul>
+<li>和list的区别<pre><code class="python">
+# 定义dict
+d = {
+'name':'wd'
+}
+# 获取dict值
+print d['name']
+# 增加新值
+d['age'] = 12
+print d['age']
+# 修改值
+d['name'] = 'pc'
+print d['name']
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>小练习8</h2>
+
+</hgroup><article>
+
+<ul>
+<li>[&#39;C&#39;,&#39;js&#39;,&#39;python&#39;,&#39;js&#39;,&#39;css&#39;,&#39;js&#39;,&#39;html&#39;,&#39;node&#39;,&#39;js&#39;,&#39;python&#39;,&#39;js&#39;,&#39;css&#39;,&#39;js&#39;,&#39;html&#39;,&#39;node&#39;,&#39;js&#39;,&#39;python&#39;,&#39;js&#39;,&#39;css&#39;,&#39;js&#39;,&#39;html&#39;,&#39;node&#39;,&#39;css&#39;,&#39;js&#39;,&#39;html&#39;,&#39;node&#39;,&#39;js&#39;,&#39;python&#39;,&#39;js&#39;,&#39;css&#39;,&#39;js&#39;,&#39;html&#39;,&#39;node&#39;,&#39;js&#39;,&#39;python&#39;,&#39;js&#39;,&#39;css&#39;,&#39;js&#39;,&#39;html&#39;,&#39;node&#39;]</li>
+<li>求出这个list中，每个字符出现的次数</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>作业</h2>
+
+</hgroup><article>
+
+<ul>
+<li>一个序列[1,2,3,2,12,3,1,3,21,2,2,3,4111,22,3333,444,111,4,5,777,65555,45,33,45]</li>
+<li>求这个list的最大的两个值</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>微信公众号</h2>
+
+</hgroup><article>
+
+<p><img src="./logo.jpg" alt="reboot" title="reboot">3</p>
+
+</article></section></slide>
+        <slide class="slide thank-you-slide segue nobackground">
+            <article class="flexbox vleft auto-fadein">
+                <h2>Q &amp; A</h2>
+                <h3>&lt;Thank You!&gt;</h3>
+            </article>
+        </slide>
+        <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+              <h2 style="color: white;">Powered By nodePPT v0.9.8-3</h2>
+            </article>
+          </slide>
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = location.pathname.split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'slide1',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/hljs-0.8.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+
+</body>
+</html>
