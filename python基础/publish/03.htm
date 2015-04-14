@@ -1,0 +1,593 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 0.9.8-3
+    site: https://github.com/ksky521/nodePPT
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>python_03_元组_字典_ - By woniuppp</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt2.0.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    <link rel="stylesheet" media="print" href="./css/pdf.css">
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>python基础教程_03</h1>
+<p><small>woniuppp</small></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>上节回顾---List</h2>
+
+</hgroup><article>
+
+<ul>
+<li>定义一个List</li>
+<li>通过索引取值</li>
+<li>可遍历</li>
+<li>成员是否存在</li>
+<li>求长度，最大值，最小值</li>
+<li>删除元素</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>上节回顾---List</h2>
+
+</hgroup><article>
+
+<ul>
+<li>修改值和切片</li>
+<li>切片批量赋值</li>
+<li>列表的方法<ul>
+<li>append</li>
+<li>count</li>
+<li>index</li>
+<li>extend</li>
+<li>insert</li>
+<li>pop</li>
+<li>reverse</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>复习一下上节任务，小练习</h2>
+
+</hgroup><article>
+
+<ul>
+<li>用户密码登陆系统，<ul>
+<li>密码错误三次，锁定用户，不能登陆</li>
+</ul>
+</li>
+<li>购物车<ul>
+<li>用户登陆之后，才能看到商品列表</li>
+<li>可以输入商品名，把商品加入购物车</li>
+<li>打印购物车列表</li>
+</ul>
+</li>
+<li>数组排序(附加题)</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>新的数据结构---tuple</h2>
+
+</hgroup><article>
+
+<ul>
+<li>元组是另一种有序的列表</li>
+<li>和list非常类似，但是tuple一旦创建，就不能修改<pre><code class="python">
+  >>> t = ('wd','pc','me')
+  >>> t1 = tuple('abc')
+</code></pre></li>
+<li>创建tuple和list不同之处，就是用()代替[]</li>
+<li>通过t[0]等方式访问元素，和list类似</li>
+<li>现在，t就不能修改了,append,pop等方法都没有</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<ul>
+<li>创建一个单元素的tuple<pre><code class="python">
+  >>> t = ()
+  >>> print t
+  >>> 
+  >>> t = (1)
+  >>> print t
+</code></pre></li>
+<li>好像打印的，不是tuple，为啥呢</li>
+<li>()既可以表示tuple，也可以作为括号运算，所以（1）被python计算出结果1<pre><code class="python">
+  >>> t = (1,)
+  >>> print t
+  >>> t = (1,2,3,)
+  >>> print t
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>可变的tuple</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+    t = (1,2,[3,4])
+    t1 = t[2]
+    t1[0] = 5
+    print t
+</code></pre>
+
+<ul>
+<li>复制和引用</li>
+</ul>
+<pre><code class="python">
+    l = [1,2,3,4]
+    l1 = l
+    l1[0] = 5
+    print l1
+
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>下面问题来了</h2>
+<h3>存储很多有一一对应关系的账号密码，用只能根据索引list略low</h3>
+
+</hgroup><article>
+
+<ul>
+<li>只是单纯的想把账号和密码联系起来，用两个list不太方便</li>
+<li>我们需要的是，可以直接通过账号，直接找到密码</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>dict(字典)隆重登场</h2>
+
+</hgroup><article>
+
+<ul>
+<li>用大括号定义</li>
+<li><pre><code class="python">
+d = {
+  'wd':123,
+  'pc':456
+}
+</code></pre></li>
+<li><p>通过dict定义</p>
+</li>
+<li><pre><code class="python">
+lst = [('wd','pc'),[1,2]]
+dct = dict(l)
+print dct
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<ul>
+<li>字典的基本行为和list类似</li>
+<li>len(d)返回总数</li>
+<li>名字称为key，对应的密码称为value</li>
+<li>通过key，找value</li>
+<li>通过key，可以更新value</li>
+<li>key可以是任何不可变类型<ul>
+<li>字符串，数字，元组等</li>
+</ul>
+</li>
+<li>del 删除元素</li>
+<li>k in d 检测字典d里，是否有k这个key</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>访问字典</h2>
+
+</hgroup><article>
+
+<ul>
+<li><p>通过key获取value</p>
+</li>
+<li><pre><code class="python">
+d = {
+  'wd':123,
+  'pc':456,
+  'me':789
+}
+print d['wd']
+print d['wd1']
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>判断元素</h2>
+
+</hgroup><article>
+
+<ul>
+<li>key不存在会报错</li>
+<li>所以先用in判断一下</li>
+<li><pre><code class="python">
+if 'wd' in d:
+  print d['wd']
+</code></pre></li>
+<li><p>或者用get，不会报错</p>
+</li>
+<li><pre><code class="python">
+d.get('wd')
+d.get('wd1')
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>dict特点</h2>
+
+</hgroup><article>
+
+<ul>
+<li>查找速度非常快，1个元素，和10W的元素，查找速度基本一样</li>
+<li>list查找速度随着数量增加而变慢</li>
+<li>dict占用内存</li>
+<li>dict是没有顺序的</li>
+<li>dict的key是不可变的（list就不能当key，报错）</li>
+<li>key不能重复</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>更新dict</h2>
+
+</hgroup><article>
+
+<ul>
+<li><pre><code class="python">
+  >>> d['wd'] = 9
+  >>> d
+  >>> 
+</code></pre></li>
+<li>如果key不存在，就创建，如果存在，就更新值</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>字段方法</h2>
+<h3>clear</h3>
+
+</hgroup><article>
+
+<ul>
+<li>清除字典中所有的项</li>
+<li>操作原字典</li>
+<li><pre><code class="python">
+d = {}
+d['name'] = 'wd'
+d['age'] = 12
+print d
+d.clear()
+print d
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>clear的用处</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+    x = {}
+    y = x
+    x['name'] = 'wd'
+    print y
+    x = {}
+    print y
+</code></pre>
+<pre><code class="python">
+    x = {}
+    y = x
+    x['name'] = 'wd'
+    print y
+    x.clear()
+    print y
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>copy，返回一个副本（和直接复制的区别）</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+    x = {'name':'wd'}
+    y = x.copy()
+    y['age'] = 12
+    print y
+    print x
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>formkeys 使用给定的键建立新的字典，默认值对应None</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+    >>> {}.fromkeys(['name','age'])
+    >>> {}.fromkeys(['name','age'],'wd')
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>get</h2>
+
+</hgroup><article>
+
+<h3>更宽松的通过key访问value的方式，key不存在不会报错，可以提供默认值</h3>
+<pre><code class="python">
+    d = {}
+    print d['name']
+    print d.get('name')
+    print d.get('name','wd')
+    d['name'] = 'pc'
+    print d.get('name','wd')
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>has_key</h2>
+
+</hgroup><article>
+
+<h3>has_key和in的功能一样</h3>
+<pre><code class="python">
+    d = {}
+    d.has_key('name')
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>items 将字典所有项以列表的形式返回，每一项是(key,value)</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+d = {name:'wd',age:'12'}
+print d.items()    
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>keys 字典中的键，以列表的形式返回</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+d = {name:'wd',age:'12'}
+print d.keys()    
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>values 以列表的形式返回字典中的value（和keys对应）</h2>
+
+</hgroup><article>
+
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>popitem 类似于list.pop，弹出一个随机的项</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+d = {name:'wd',age:'12'}
+print d.popitem()    
+print d
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>setdefault 类似于get，可以赋默认值</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+    d = {}
+    print d.setdefault('name','wd')
+    print d
+    print d.setdefault('name','pc')
+    print d
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>update 可以用一个字典去更新另外一个字典</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+    d = {name:'wd'}
+    d1 = {name:'pc'}
+    d.update(d1)
+    print d
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>字符串</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+    str1 = 'hello'
+    print str[0]
+    print str[0:2]
+    print 'e' in 'hello'
+    print 'e' not in 'hello'
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>字符串</h2>
+
+</hgroup><article>
+
+<h3>join</h3>
+<pre><code class="python">
+    '|'.join(['hello','world'])
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>字符串</h2>
+<ul>
+<li>find(a) 检测 str 是否包含a，则检查是否包含在指定范围内，如果是返回开始的索引值，否则返回-1<pre><code class="python">
+  'helloworld'.find('e')
+  'helloworld'.find('s')
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<ul>
+<li>index 用法和find一样，但是不存在的时候，报错<pre><code class="python">
+  'helloworld'.index('e')
+  'helloworld'.index('s')
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>字符串</h2>
+
+</hgroup><article>
+
+<h3>capitalize</h3>
+<pre><code class="python">
+    'hello'.capitalize()
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>字符串</h2>
+
+</hgroup><article>
+
+<ul>
+<li>count(a) 统计a出现的次数<pre><code class="python">
+  'hello'.count('l')
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>字符串</h2>
+
+</hgroup><article>
+
+<ul>
+<li>replace 字符串替换(默认替换全部)，第三个参数，限定替换次数<pre><code class="python">
+  'hello,world'.replace('ll','ww')
+  'hello,wollrld'.replace('ll','ww')
+  'hello,wollrld'.replace('ll','ww',1)
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<ul>
+<li>split 分隔字符串 <pre><code class="python">
+  'hello,world,pc,wd'.split(',')
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<ul>
+<li>rstrip 删除串尾的空格</li>
+<li>lstrip 删除串首的空格</li>
+<li>strip 综合上面两个<pre><code class="python">
+  '   hello   world              '.rstrip()
+  '   hello   world              '.lstrip()
+  '   hello   world              '.strip()
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>微信公众号</h2>
+
+</hgroup><article>
+
+<p><img src="./logo.jpg" alt="reboot" title="reboot"></p>
+
+</article></section></slide>
+        <slide class="slide thank-you-slide segue nobackground">
+            <article class="flexbox vleft auto-fadein">
+                <h2>Q &amp; A</h2>
+                <h3>&lt;Thank You!&gt;</h3>
+            </article>
+        </slide>
+        <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+              <h2 style="color: white;">Powered By nodePPT v0.9.8-3</h2>
+            </article>
+          </slide>
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = location.pathname.split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'cards',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/hljs-0.8.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./css/demo.css">
+</body>
+</html>

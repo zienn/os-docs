@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>python_02_列表 - By woniuppp</title>
+    <title>python_02_列表 - By </title>
     <link rel="stylesheet" media="all" href="./css/nodeppt2.0.css">
     <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
     <link rel="stylesheet" media="print" href="./css/pdf.css">
@@ -22,19 +22,12 @@
 <p><small>woniuppp</small></p>
 
 </article></section></slide>
-<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
-<h1>样式展示</h1>
-<blockquote>
-<p>nodePPT 让每个人都爱上做分享！</p>
-</blockquote>
-
-</article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><hgroup>
 <h2>上节回顾</h2>
 
 </hgroup><article>
 
-<ul class="bounceIn">
+<ul>
 <li>学编程的方法</li>
 <li>变量和语句</li>
 <li>数字运算</li>
@@ -49,12 +42,13 @@
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><hgroup>
-<h2>复习一下上节任务</h2>
+<h2>复习一下上节任务，小练习</h2>
 
 </hgroup><article>
 
-<ul class="bounceIn">
+<ul>
 <li>让用户输入数字，并且累加，输入求和</li>
+<li>存10000块钱，年利率是3.25%，求多少年之后，存款能翻番</li>
 <li>遗留问题，求平均分</li>
 </ul>
 
@@ -65,7 +59,7 @@
 
 </hgroup><article>
 
-<ul class="bounceIn">
+<ul>
 <li>现有的变量目测满足不了需求</li>
 <li>我们需要新的数据结构XXX</li>
 <li>XXX可以有顺序的存储一堆数量未知的数据</li>
@@ -81,14 +75,9 @@
 
 <h3>XXX实现的能力就像排队买火车票一样</h3>
 <ul>
-<li>数量可以任意多<ul>
-<li>排多长的队伍，都OK</li>
-</ul>
-</li>
-<li>有序的<ul>
-<li>可以通过第X个，找到这个人</li>
-</ul>
-</li>
+<li>数量可以任意多----排多长的队伍，都OK {&amp;。}</li>
+<li>可遍历</li>
+<li>有序的----可以通过第X个，找到这个人</li>
 <li>可以修改里面的值<ul>
 <li>比如我可以和第3个人换个位置</li>
 </ul>
@@ -98,36 +87,24 @@
 </ul>
 </li>
 <li>插入值，就是允许插队</li>
-<li>得到元素数量<ul>
-<li>知道有多少人排队</li>
-</ul>
-</li>
+<li>得到元素数量----知道有多少人排队</li>
 </ul>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article>
 <h2>XXX需要的能力</h2>
 <ul>
-<li>获取索引值<ul>
-<li>通过一个人的名字，能知道他是第几个</li>
-</ul>
-</li>
+<li>获取索引值----通过一个人的名字，能知道他是第几个</li>
 <li>统计元素项目<ul>
 <li>可以统计这个队列里，有多少儿童</li>
 </ul>
 </li>
-<li>可以追加元素<ul>
-<li>新来一个人，去队尾站着</li>
-</ul>
-</li>
+<li>可以追加元素----新来一个人，去队尾站着</li>
 <li>两个list合并<ul>
 <li>窗口A不卖票了，A队伍和B队伍合并一起排队</li>
 </ul>
 </li>
-<li>删除元素<ul>
-<li>中间一个人不想排了，直接走了</li>
-</ul>
-</li>
+<li>删除元素----一个人不想排了，直接走了</li>
 <li>其他</li>
 </ul>
 
@@ -162,6 +139,12 @@
     >>> arr = list('python')
     >>> arr
 </code></pre>
+
+<h3>可遍历</h3>
+<pre><code class="python">
+    for o in ['wd','pc','me']:
+        print o
+</code></pre>
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><hgroup>
 <h2>成员是否存在</h2>
@@ -183,30 +166,8 @@
     >>> 
     >>> min(arr)
 </code></pre>
-</article></section></slide>
-<slide class="slide"><section class="slide-wrapper"><hgroup>
-<h2>List能力展示</h2>
 
-</hgroup><article>
-
-<h3>修改值和切片</h3>
-<ul>
-<li><pre><code class="python">
-  >>> arr = ['C','python','js','css','html','node']
-  >>> arr[0] = 'java'
-  >>> arr
-  ['java','python','js','css','html','node']
-  >>> arr[-1] = ruby
-  >>> arr
-  ['java','python','js','css','html','ruby']
-  >>> arr[1]
-  'python'
-  >>> arr[-1]
-  'node'
-  >>> arr[-3]
-  'css'
-</code></pre></li>
-</ul>
+<h3>任务：用之前的知识，实现in和这三个功能</h3>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><hgroup>
@@ -227,6 +188,26 @@
     >>> arr1 = ['me',1,2,3]
     >>> arr + arr1
 </code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>修改值和切片</h2>
+
+</hgroup><article>
+
+<ul>
+<li><pre><code class="python">
+  >>> arr = ['C','python','js','css','html','node']
+  >>> arr[0] = 'java'
+  >>> arr
+  >>> arr[-1] = 'ruby'
+  >>> arr
+
+  >>> arr[1]
+  >>> arr[-1]
+  >>> arr[-3]
+</code></pre></li>
+</ul>
+
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><hgroup>
 <h2>切片---获取list中一部分连续的数据</h2>
@@ -275,7 +256,7 @@
 <slide class="slide hasnote"><aside class="note">
 <section>
 <p>前面都是直接操作list，下面是list的一些方法
-    注意区分，是修改的原数组，还是返回值</p>
+    注意区分，是修改的原List，还是返回值</p>
 
 </section>
 </aside><section class="slide-wrapper"><hgroup>
@@ -296,7 +277,7 @@
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><hgroup>
 <h2>append 向list最后追加元素</h2>
-<h3>没有返回值，修改原数组</h3>
+<h3>没有返回值，修改原List</h3>
 
 </hgroup><article>
 
@@ -313,6 +294,9 @@
     >>> arr = [1,2,3,4,43,3,1,2,3]
     >>> arr.count(2)
 </code></pre>
+
+<h3>任务:用之前的list知识，实现append和count的功能</h3>
+
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article>
 <h2>extend 扩展原列表</h2>
@@ -328,17 +312,17 @@
 
 <p>extend和直接相加的区别</p>
 <ul>
-<li>extend没有返回值，是修改原数组</li>
-<li>上面例题相当于 a[len(a):] = b</li>
+<li>extend没有返回值，是修改原List</li>
 </ul>
+<h3>任务:用之前的list知识，实现extend的功能</h3>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article>
 <h2>index 从列表中找出某个值，返回第一个匹配项的索引位置</h2>
 <h3>不存在的话，会报错，可以先用in检测</h3>
 <pre><code class="python">
-    >>> arr = [1,2,3,5,1,56,45,234,6,7,234]
-    >>> arr.index(2)
+    >>> arr = [1,2,'a',3,5,1,56,45,234,6,7,234]
+    >>> arr.index('a')
 </code></pre>
 
 <h2>insert 插队</h2>
@@ -347,9 +331,11 @@
     >>> arr=[1,2,3,4,5,6,7]
     >>> arr.insert(3,'four')
     insert和下面效果一样
-    >>> arr[3:3] = 'four'
-    >>> arr
+
 </code></pre>
+
+<h3>任务:用之前的list知识，实现index和insert的功能</h3>
+
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article>
 <h2>pop 根据索引移除list中的元素，并且返回，默认删除最后一个</h2>
@@ -369,6 +355,14 @@
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article>
+<h2>任务：实现队列和栈</h2>
+<ul>
+<li>先入先出</li>
+<li>先入后出</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
 <h2>remove根据值来删除元素，删除第一个匹配项</h2>
 <h3>如果没有匹配项，报错</h3>
 <pre><code class="python">
@@ -378,12 +372,112 @@
 
 </code></pre>
 
-<h2>reverse 数组反向 修改列表，不返回值</h2>
+<h2>reverse List反向 修改列表，不返回值</h2>
 <pre><code class="python">
     >>> arr = [1,2,8,5,4]
     >>> arr.reverse()
     >>> 
     >>> arr
+</code></pre>
+
+<h3>任务:用之前的list知识，实现remove和reverse的功能</h3>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>引导复习一下list的知识</h2>
+<ul>
+<li>怎么定义一个list</li>
+<li>in，len，max，min，del</li>
+<li>切片</li>
+<li>append, count, extend, index, insert, pop, remove, reverse</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:center">原List</th>
+<th style="text-align:right">返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">append</td>
+<td style="text-align:center">修改</td>
+<td style="text-align:right">无</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">count</td>
+<td style="text-align:center">无</td>
+<td style="text-align:right">返回</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">extend</td>
+<td style="text-align:center">修改</td>
+<td style="text-align:right">无</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">index</td>
+<td style="text-align:center">修改</td>
+<td style="text-align:right">无</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">insert</td>
+<td style="text-align:center">修改</td>
+<td style="text-align:right">无</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">pop</td>
+<td style="text-align:center">修改</td>
+<td style="text-align:right">返回删除的值</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">remove</td>
+<td style="text-align:center">修改</td>
+<td style="text-align:right">无</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">reverse</td>
+<td style="text-align:center">修改</td>
+<td style="text-align:right">无</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>实践时间，操练起来</h2>
+<ul>
+<li>对一个list，求出最大的三个值</li>
+<li>给一个字符串，反向打印出来</li>
+<li>给定两个List，求出两个List里面，相同的元素</li>
+<li>用户密码登陆系统，<ul>
+<li>密码错误三次，锁定用户，不能登陆</li>
+</ul>
+</li>
+<li>购物车<ul>
+<li>用户登陆之后，才能看到商品列表</li>
+<li>可以输入商品名，把商品加入购物车</li>
+<li>打印购物车列表</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="python">
+
+
 </code></pre>
 </article></section></slide>
         <slide class="slide thank-you-slide segue nobackground">
@@ -434,7 +528,7 @@ Slide.init({
     slideClass: '.slide',
     buildClass: '.build',
     progressID: 'progress',
-    transition: 'kontext',
+    transition: 'slide2',
     width: 1100,
     dir: './',
     

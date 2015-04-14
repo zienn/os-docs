@@ -1,0 +1,527 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 0.9.8-3
+    site: https://github.com/ksky521/nodePPT
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>python_05_函数 - By woniuppp</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt2.0.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    <link rel="stylesheet" media="print" href="./css/pdf.css">
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>python基础教程<em>05</em>函数</h1>
+<p><small>woniuppp</small></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>上节回顾——文件操作</h2>
+
+</hgroup><article>
+
+<h3>上节课内容非常简单，主要就是几个函数</h3>
+<ul>
+<li>open</li>
+<li>read</li>
+<li>readling</li>
+<li>readlines</li>
+<li>write</li>
+<li>writelines</li>
+<li>close</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>上节回顾——文件操作</h2>
+
+</hgroup><article>
+
+<ul>
+<li>文件的模式<ul>
+<li>读</li>
+<li>写</li>
+<li>追加</li>
+</ul>
+</li>
+<li>错误处理<ul>
+<li>try</li>
+<li>except</li>
+<li>else</li>
+<li>finaly</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>上节回顾——前端基础</h2>
+
+</hgroup><article>
+
+<ul>
+<li>html css 和js的关系</li>
+<li>常用标签介绍<ul>
+<li>html</li>
+<li>head</li>
+<li>body</li>
+<li>p</li>
+<li>input</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>上节回顾——前端基础</h2>
+
+</hgroup><article>
+
+<h3>css</h3>
+<ul>
+<li>width</li>
+<li>height</li>
+<li>background</li>
+<li>float</li>
+<li>margin</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>简单的nginx日志分析</h2>
+
+</hgroup><article>
+
+<h3>学的东西终于好像有点用了</h3>
+<ul>
+<li>题目：日志文件在/home/shre/www_access_20140823.log</li>
+<li>期待输出一个list，包含里面的http状态，url，ip，访问次数</li>
+<li>输出按照访问次数排序，输出前十</li>
+<li>一定要保证自己能独立完成这个题，是后面学习的基础</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>大概的思考步骤</h2>
+
+</hgroup><article>
+
+<p><img src="../05/log01.png" alt="Alt text"></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>01分析日志，统计出pv</h2>
+
+</hgroup><article>
+
+<ul>
+<li>读文件，easy</li>
+<li>需要有一个数据结构来存储统计的数据</li>
+<li>用list<ul>
+<li>list的每个数据，是一个list，存储着所有的数据</li>
+<li>每当有一个新的状态+地址+ip的时候，更新对应list里面的访问次数值</li>
+<li>但是问题来了，怎么找是一个问题</li>
+<li>每一行数据，都要遍历整个list，明显坑爹</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p><img src="../05/douwo.png" alt=""></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>查找数据强大的dict</h2>
+
+</hgroup><article>
+
+<ul>
+<li>状态当一个key，value再来一个dict</li>
+<li>里面的dict，url当key，同理，嵌套</li>
+</ul>
+<pre><code class="javascript">
+{
+    404: {
+        'xxx/xxx.img': {
+            '192.168.2.1': 2,
+            '192.168.2.2': 4
+        },
+        'aaa/aaa.img':{
+
+        }
+    },
+    200:{
+
+    }
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>第一步搞定</h2>
+<p><img src="../05/kaixin.png" alt=""></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>第二步</h2>
+
+</hgroup><article>
+
+<h3>排序---dict好像本来就没啥顺序</h3>
+<p><img src="../05/douwo.png" alt=""></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>思路，处理成list 然后冒泡十次，取最后十个</h2>
+<h3>具体看代码</h3>
+<p><img src="../05/kaixin.png" alt=""></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>函数</h2>
+
+</hgroup><article>
+
+<ul>
+<li>咱们现在写一些小程序是没问题的</li>
+<li>如果我们写的log日志分析功能，在其他地方也能用到，该肿么办</li>
+<li>所以我们需要函数<ul>
+<li>执行一系列语句</li>
+</ul>
+</li>
+<li>代码复用<ul>
+<li>不用一直复制代码</li>
+</ul>
+</li>
+<li>更加易读<ul>
+<li>通过函数来组织一个功能</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>def 创建一个函数</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+def hello():
+    print 'hello'
+    print 'world'
+hello()
+hello()
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>return返回一个值</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+def hello():
+    return 'hello world'
+print hello()
+print hello()
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>函数的参数,变化的部分</h2>
+
+</hgroup><article>
+
+<ul>
+<li>参数 只是一个变量<pre><code class="python">
+def hello(text):
+  print 'hello %s' % text
+hello('wd')
+hello('pc')
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>参数 只是一个变量</h2>
+<h3>传递参数，大概就相当于赋值的操作</h3>
+
+</hgroup><article>
+
+<h3>小练习 ：写一个计算阶乘的函数</h3>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>感受一下两个例子的区别</h2>
+<pre><code class="python">
+user_name = 'wd'
+def change_params(name):
+    name = 'pc'
+change_params(user_name)
+print user_name
+</code></pre>
+
+<pre><code class="python">
+user_name_list = ['wd','woniu']
+def change_params(names):
+    names[0] = 'pc'
+change_params(user_name_list)
+print user_name_list
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>我们现在所用的参数，都是和位置相关</h2>
+<pre><code class="python">
+
+def hello_world(name, word):
+    print '%s,%s' % (name,word)
+hello_world('wd','hello')
+</code></pre>
+<pre><code class="python">
+
+def hello_world(word,name):
+    print '%s,%s' % (name,word)
+hello_world('wd','hello')
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>我们可以指定参数的名字——关键字参数</h2>
+<h3>代码更易读</h3>
+<pre><code class="python">
+def hello_world1(name,word):
+    print '%s,%s' % (name,word)
+def hello_world2(word,name):
+    print '%s,%s' % (name,word)
+
+hello_world1(name='wd',word='hello')
+hello_world2(name='wd',word='hello')
+
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>定义函数的时候，使用关键字参数，可以指定默认值</h2>
+<pre><code class="python">
+def hello_world(name='wd',word='hello'):
+    print '%s,%s' % (name,word)
+hello_world()
+hello_world('pc')
+hello_world('pc','hehe')
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>参数不确定的时候</h2>
+
+</hgroup><article>
+
+<h3>定义函数的时候，参数前面加一个* 可以收集所有参数</h3>
+<pre><code class="python">
+def print_params(*params):
+    print params
+print_params()
+print_params(1,2,3,4)
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>小练习</h2>
+<h3>函数add_all,把传入的所有参数求和，打印出来</h3>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>先指定位置参数，然后后面的可以用*来匹配</h2>
+<pre><code class="python">
+def print_params(name,*params):
+    print name
+    print params
+print_params('pc')
+print_params('wd',2,3,4)
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>收集关键字参数，要用两个  **</h2>
+<pre><code class="python">
+def print_params(**params):
+    print params
+
+print_params()
+print_params(name='pc',job='worker')
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>和位置参数一样，也可以先定义确认的参数，不确定的用** 收集</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="python">
+def print_params(name,**params):
+    print name
+    print params
+
+print_params(name='wd',sex='male',location='bj')
+print_params(name='pc',job='worker',weight=180)
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>尝试<em>和*</em> 一起使用</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>作用域</h2>
+
+</hgroup><article>
+
+<pre><code class="python">
+x = 1
+def change_global():
+    x = 3
+change_global()
+print x
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>作用域</h2>
+<pre><code class="python">
+x = 1
+def change_global():
+    global x 
+    x = 3
+change_global()
+print x
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>列表推倒式</h2>
+<pre><code class="python">
+print [x*x for x in range(10)]
+print [x*x for x in range(10) if x % 3 == 0]
+print [(x,y) for x in range(3) for y in range(3)]
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>labmba匿名函数</h2>
+<pre><code class="python">
+
+    g = lambda x: x*2
+    print g(3)
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>作业1</h2>
+
+</hgroup><article>
+
+<ul>
+<li>一个list[(1,4),(5,1),(2,3)],根据每个元组中的较大值进行排序<ul>
+<li>期待结果：[(2,3),(1,4),(5,1)]</li>
+<li>要求：用sorted和lambda完成</li>
+<li>级别1：用lambda中用max</li>
+<li>级别2：lambda中不用max</li>
+<li>提示：True乘以4 ==4   Fale乘以2 == 0<pre><code class="python">
+print True*4
+print False*4
+</code></pre></li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<ul>
+<li>用函数，优化log分析的功能</li>
+<li><p>实现加减乘除功能的函数</p>
+<ul>
+<li>级别1 不支持优先级</li>
+<li><p>级别2 支持优先级，但是没有括号</p>
+</li>
+<li><p>def operate(str):</p>
+</li>
+<li>operate(&#39;1+2+3-5&#39;) == 1</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>微信公众号</h2>
+
+</hgroup><article>
+
+<p><img src="./logo.jpg" alt="reboot" title="reboot"></p>
+
+</article></section></slide>
+        <slide class="slide thank-you-slide segue nobackground">
+            <article class="flexbox vleft auto-fadein">
+                <h2>Q &amp; A</h2>
+                <h3>&lt;Thank You!&gt;</h3>
+            </article>
+        </slide>
+        <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+              <h2 style="color: white;">Powered By nodePPT v0.9.8-3</h2>
+            </article>
+          </slide>
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = location.pathname.split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'slide',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/hljs-0.8.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./css/demo.css">
+</body>
+</html>
