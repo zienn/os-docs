@@ -63,7 +63,7 @@ create memory(memory int,time int)
 
 我们的 monitor.py就不能只打印内存信息了，要存储数据库啦,引入mysql模块，代码如下
 
-```
+```python
 import time
 import MySQLdb as mysql
 
