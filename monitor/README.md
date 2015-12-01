@@ -208,14 +208,207 @@ $(function () {
 
 ![](01.png)
 
+我们并不仅限于此，如果想实时的看到内存，应该怎么搞呢
+
+1.查询数据时候增加一个时间戳当限制条件，再次查询时，只返回两次查询之间的增量数据
+2.前端动态添加增量结点数据到图表中
+3.代码呼之欲出
+
+python
+```
+
+tmp_time = 0
+
+@app.route('/data')
+def data():
+    global tmp_time
+    if tmp_time>0:
+        sql = 'select * from memory where time>%s' % (tmp_time/1000)
+    else:
+        sql = 'select * from memory'
+    cur.execute(sql)
+    arr = []
+    for i in cur.fetchall():
+        arr.append([i[1]*1000,i[0]])
+    if len(arr)>0:
+        tmp_time = arr[-1][0]
+    return json.dumps(arr)
+
+```
+
+前端,3秒查一次增量数据
+```
+    $.getJSON('/data', function (data) {
+
+        // Create the chart
+        $('#container').highcharts('StockChart', {
+        chart:{
+        events:{
+            load:function(){
+                var series = this.series[0]
+                setInterval(function(){
+                $.getJSON('/data',function(res){
+                    $.each(res,function(i,v){
+                        series.addPoint(v)
+                    })
+                })
+                },3000)
+            }
+        }
+        },
+
+            rangeSelector : {
+                selected : 1
+            },
+
+            title : {
+                text : 'AAPL Stock Price'
+            },
+
+            series : [{
+                name : 'AAPL',
+                data : data,
+                tooltip: {
+                    valueDecimals: 2
+                }
+            }]
+        });
+    });
+```
+
+最终代码（直接下载文件看也行）
+
+监控文件monitor.py
+```python
+import time
+import MySQLdb as mysql
+
+db = mysql.connect(user="reboot",passwd="reboot123",db="memory",host="localhost")
+db.autocommit(True)
+cur = db.cursor()
+
+def getMem():
+    f = open('/proc/meminfo')
+    total = int(f.readline().split()[1])
+    free = int(f.readline().split()[1])
+    buffers = int(f.readline().split()[1])
+    cache = int(f.readline().split()[1])
+    mem_use = total-free-buffers-cache
+    t = int(time.time())
+    sql = 'insert into memory (memory,time) value (%s,%s)'%(mem_use/1024,t)
+    cur.execute(sql)
+    print mem_use/1024
+    #print 'ok'
+while True:
+    time.sleep(1)
+    getMem()
+
+```
+
+flask
+```python
+from flask import Flask,render_template,request
+import MySQLdb as mysql
+
+con = mysql.connect(user='reboot',passwd='reboot123',host='localhost',db='memory')
+con.autocommit(True)
+cur = con.cursor()
+app = Flask(__name__)
+import json
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+tmp_time = 0
+
+@app.route('/data')
+def data():
+    global tmp_time
+    if tmp_time>0:
+        sql = 'select * from memory where time>%s' % (tmp_time/1000)
+    else:
+        sql = 'select * from memory'
+    cur.execute(sql)
+    arr = []
+    for i in cur.fetchall():
+        arr.append([i[1]*1000,i[0]])
+    if len(arr)>0:
+        tmp_time = arr[-1][0]
+    return json.dumps(arr)
+
+if __name__=='__main__':
+    app.run(host='0.0.0.0',port=9092,debug=True)
+```
+
+前端
+```html
+<html>
+<head>
+<title>51reboot</title>
+<meta charset='utf-8'>
+</head>
+
+<body>
+hello world
+
+<div id="container" style="height: 400px; min-width: 310px"></div>
+
+<script src='/static/jquery.js'></script>
+<script src='/static/highstock.js'></script>
+<script src='/static/exporting.js'></script>
+<script>
+$(function () {
+
+    $.getJSON('/data', function (data) {
+
+        // Create the chart
+        $('#container').highcharts('StockChart', {
+        chart:{
+        events:{
+        
+            load:function(){
+            
+                var series = this.series[0]
+                setInterval(function(){
+                $.getJSON('/data',function(res){
+                    $.each(res,function(i,v){
+                        series.addPoint(v)
+                    })
+                })
+                },3000)
+            }
+        }
+        },
+
+            rangeSelector : {
+                selected : 1
+            },
+
+            title : {
+                text : '内存数据'
+            },
+
+            series : [{
+                name : '本机内存',
+                data : data,
+                tooltip: {
+                    valueDecimals: 2
+                }
+            }]
+        });
+    });
+
+});
+</script>
+
+</body>
+</html>
+
+```
 
 
-```
-```
-```
-```
-```
-```
+代码没有特别注意细节，希望大家喜欢
 
 
 
