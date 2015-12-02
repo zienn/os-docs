@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>51reboot</title>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+
+    <script src='/static/jquery.min.js'>	</script>
+    <!-- ECharts单文件引入 -->
+    <script src="/static/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('main'));
+
+        $.getJSON('/linedata', function(res) {
+
+            var option = {
+                backgroundColor: '#1b1b1b',
+                color: ['gold', 'aqua', 'lime'],
+                title: {
+                    text: '访问可视化',
+                    subtext: '数据是真实地，模拟了host,304的都去北京，404的都去上海',
+                    x: 'center',
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{b}'
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data: ['北京', '上海'],
+                    // selectedMode: 'single',
+                    // selected:{
+                    //     '上海 Top10' : false
+                    // },
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                toolbox: {
+                    show: true,
+                    orient: 'vertical',
+                    x: 'right',
+                    y: 'center',
+                    feature: {
+                        mark: {
+                            show: true
+                        },
+                        dataView: {
+                            show: true,
+                            readOnly: false
+                        },
+                        restore: {
+                            show: true
+                        },
+                        saveAsImage: {
+                            show: true
+                        }
+                    }
+                },
+                dataRange: {
+                    min: res.min,
+                    max: res.max,
+                    calculable: true,
+                    color: ['#ff3333', 'orange', 'yellow', 'lime', 'aqua'],
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                series: [{
+                    name: '全国',
+                    type: 'map',
+                    roam: true,
+                    hoverable: false,
+                    mapType: 'china',
+                    itemStyle: {
+                        normal: {
+                            borderColor: 'rgba(100,149,237,1)',
+                            borderWidth: 0.5,
+                            areaStyle: {
+                                color: '#1b1b1b'
+                            }
+                        }
+                    },
+                    data: [],
+                    markLine: {
+                        smooth: true,
+                        symbol: ['none', 'circle'],
+                        symbolSize: 1,
+                        itemStyle: {
+                            normal: {
+                                color: '#fff',
+                                borderWidth: 1,
+                                borderColor: 'rgba(30,144,255,0.5)'
+                            }
+                        },
+                        data: []
+                    },
+                    geoCoord: res.geoData
+                }, {
+                    name: '北京',
+                    type: 'map',
+                    mapType: 'china',
+                    data: [],
+                    markLine: {
+                        smooth: true,
+                        effect: {
+                            show: true,
+                            scaleSize: 1,
+                            period: 30,
+                            color: '#fff',
+                            shadowBlur: 10
+                        },
+                        itemStyle: {
+                            normal: {
+                                borderWidth: 1,
+                                lineStyle: {
+                                    type: 'solid',
+                                    shadowBlur: 10
+                                }
+                            }
+                        },
+                        data: res.bj_line
+                    },
+                    markPoint: {
+                        symbol: 'emptyCircle',
+                        symbolSize: function(v) {
+                            return 10 + v / 1000
+                        },
+                        effect: {
+                            show: true,
+                            shadowBlur: 0
+                        },
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    show: false
+                                }
+                            },
+                            emphasis: {
+                                label: {
+                                    position: 'top'
+                                }
+                            }
+                        },
+                        data: res.bj_point
+                    }
+                }, {
+                    name: '上海',
+                    type: 'map',
+                    mapType: 'china',
+                    data: [],
+                    markLine: {
+                        smooth: true,
+                        effect: {
+                            show: true,
+                            scaleSize: 1,
+                            period: 30,
+                            color: '#fff',
+                            shadowBlur: 10
+                        },
+                        itemStyle: {
+                            normal: {
+                                borderWidth: 1,
+                                lineStyle: {
+                                    type: 'solid',
+                                    shadowBlur: 10
+                                }
+                            }
+                        },
+                        data: res.sh_line
+                    },
+                    markPoint: {
+                        symbol: 'emptyCircle',
+                        symbolSize: function(v) {
+                            return 10 + v / 1000
+                        },
+                        effect: {
+                            show: true,
+                            shadowBlur: 0
+                        },
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    show: false
+                                }
+                            },
+                            emphasis: {
+                                label: {
+                                    position: 'top'
+                                }
+                            }
+                        },
+                        data: res.sh_point
+                    }
+                }]
+            };
+
+
+
+            // 为echarts对象加载数据 
+            myChart.setOption(option);
+        })
+
+
+    </script>
+</body>
