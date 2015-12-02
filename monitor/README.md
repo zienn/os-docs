@@ -1,6 +1,9 @@
 # 简易的内存监控系统
 
-## 视频正在转码，稍后连接奉上
+## 视频正在转码链接
+录制中间网出问题了，重启了一下，所以有两部分
+* [视频1](http://v.qq.com/boke/gplay/6362f9ed32ee1bc6bcfe344f11a106c5_lyf0000015cvpaj_d0174xh1ft1.html)
+* [视频2](http://v.qq.com/boke/gplay/6362f9ed32ee1bc6bcfe344f11a106c5_lyf0000015cvpaj.html)
 
 本文的目的在于，尽可能用简单的代码，让大家了解内存监控的原理
 主题思路
@@ -49,13 +52,30 @@ while True:
 ```
 
 
+
+我们可以写个很搓的测试代码，占用一点内存，看看数据会不会变
+执行下面代码，能看到内存使用量明显多了几M
+
+```python
+# test.py
+
+s = 'akdsakjhdjkashdjkhasjkdhasjkdhkjashdaskjhfoopnnm,ioqouiew'*100000
+
+for i in s:
+    for j in s:
+        s.count(j)
+~                     
+```
+
+
 获取内存数据done!
+
 
 ## 第二部存储数据库
 
 ###我们选用mysql 
 
-新建表格,我们需要两个字段，内存和时间 sql呼之欲出
+新建表格,我们需要两个字段，内存和时间 sql呼之欲出，简单粗暴
 
 ```sql
 create memory(memory int,time int)
@@ -89,7 +109,11 @@ while True:
 
 ```
 
-多了拼接sql和执行的步骤，具体过程见视频
+比之前的多了拼接sql和执行的步骤，具体过程见视频，大家到数据库里执行一下下面的sql，就能看到我们辛辛苦苦获取的内存数据啦
+
+```sql
+    select * from memory
+```
 
 我们的数据库里数据越来越多，怎么展示呢
 
@@ -100,13 +124,13 @@ while True:
 .
 ├── flask_web.py web后端代码
 ├── mointor.py 监控数据获取
-├── static
+├── static 静态文件，第三方图表库
 │   ├── exporting.js
 │   ├── highstock.js
 │   └── jquery.js
 ├── templates
 │   └── index.html 展示前端页面
-└── test.py
+└── test.py 占用内存的测试代码
 
 
 ```
@@ -114,6 +138,10 @@ while True:
 flask_web就是我们的web服务代码，template下面的html，就是前端展示的文件，static下面是第三方库
 
 flask_web的代码如下
+
+* 提供两个路由
+    - 根目录渲染文件index.html
+    - /data路由去数据库插数据，返回json，供画图使用
 
 ```python
 from flask import Flask,render_template,request
@@ -140,13 +168,13 @@ def data():
         arr.append([i[1]*1000,i[0]])
     return json.dumps(arr)
 
-
-
 if __name__=='__main__':
     app.run(host='0.0.0.0',port=9092,debug=True)
 
 ```
+
 前端index.html
+[highstock的demo页面](http://code.hcharts.cn/highstock/hhhhio),copy过来，具体过程见视频
 
 ```html
 <html>
@@ -164,7 +192,12 @@ hello world
 <script src='/static/exporting.js'></script>
 <script>
 $(function () {
-
+    // 使用当前时区，否则东八区会差八个小时
+    Highcharts.setOptions({
+        global: {
+            useUTC: false
+        }
+    });
     $.getJSON('/data', function (data) {
 
         // Create the chart
@@ -175,11 +208,11 @@ $(function () {
             },
 
             title : {
-                text : 'AAPL Stock Price'
+                text : '内存数据'
             },
 
             series : [{
-                name : 'AAPL',
+                name : '本机内存',
                 data : data,
                 tooltip: {
                     valueDecimals: 2
@@ -204,9 +237,9 @@ $(function () {
 
 我们并不仅限于此，如果想实时的看到内存，应该怎么搞呢
 
-1.查询数据时候增加一个时间戳当限制条件，再次查询时，只返回两次查询之间的增量数据
-2.前端动态添加增量结点数据到图表中
-3.代码呼之欲出
+* 查询数据时候增加一个时间戳当限制条件，再次查询时，只返回两次查询之间的增量数据
+* 前端动态添加增量结点数据到图表中
+* 代码呼之欲出
 
 python
 ```
@@ -270,13 +303,12 @@ def data():
     });
 ```
 
+done！两个文件都搞定，double kill！
 效果
 
 ![](./3.gif)
 
-最终代码（直接下载文件看也行）
-
-
+最终代码[直接下载那个木看也行](https://github.com/shengxinjing/python_blog/tree/master/monitor)
 
 监控文件monitor.py
 ```python
@@ -359,7 +391,12 @@ hello world
 <script src='/static/exporting.js'></script>
 <script>
 $(function () {
-
+    // 使用当前时区，否则东八区会差八个小时
+    Highcharts.setOptions({
+        global: {
+            useUTC: false
+        }
+    });
     $.getJSON('/data', function (data) {
 
         // Create the chart
@@ -409,6 +446,11 @@ $(function () {
 
 
 代码没有特别注意细节，希望大家喜欢
+<p>运维开发交流QQ群：<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=f03fd72ed353ccfc801d393529aed84e2a663334caba7af88aa2a29620636549"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="Reboot【二】" title="Reboot【二】"></a></p>
+
+欢迎大家关注公共号
+
+![](http://51reboot.com/static/images/erweima.jpg)
 
 
 

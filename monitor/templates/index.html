@@ -14,6 +14,12 @@ hello world
 <script src='/static/exporting.js'></script>
 <script>
 $(function () {
+    // 使用当前时区，否则东八区会差八个小时
+    Highcharts.setOptions({
+        global: {
+            useUTC: false
+        }
+    });
 
     $.getJSON('/data', function (data) {
 
