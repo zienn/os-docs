@@ -11,7 +11,7 @@ def map_line():
 
 @app.route('/linedata')
 def linedata():
-	sql = 'select * from log_map where status=304 or status=404 and value>100'
+	sql = 'select * from log_map where status=304 or status=404 and value>10'
 	cur = db.execute(sql)
 	# 假数据 上海和北京
 	res = {

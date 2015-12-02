@@ -7,7 +7,7 @@ def chart():
 	return render_template('chart.html')
 @app.route('/chartdata')
 def chartdata():
-	sql = 'select status,sum(value) from log1 group by status '
+	sql = 'select status,sum(value) from log group by status '
 	res = {
 		'label':[],
 		'data':[]

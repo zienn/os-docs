@@ -25,7 +25,7 @@ def code():
 @app.route('/table')
 def table():
 	table = '<table border="1">'
-	cur.execute('select * from log1 where value>5')
+	cur.execute('select * from log where value>5')
 	for c in cur.fetchall():
 		table += '<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'%c
 	table +='</table>'
@@ -33,7 +33,7 @@ def table():
 
 @app.route('/datatable')
 def datatable():
-	cur.execute('select * from log1 where value>5')
+	cur.execute('select * from log where value>5')
 	return render_template('datatable.html',data=cur.fetchall())
 
 @app.route('/chart')
@@ -41,7 +41,7 @@ def chart():
 	return render_template('chart.html')
 @app.route('/chartdata')
 def chartdata():
-	sql = 'select status,sum(value) from log1 group by status '
+	sql = 'select status,sum(value) from log group by status '
 	res = {
 		'label':[],
 		'data':[]
@@ -75,7 +75,7 @@ def chartlinedata():
 
 # @app.route('/linedata')
 # def linedata():
-# 	sql = 'select status,sum(value) from log1 group by status '
+# 	sql = 'select status,sum(value) from log group by status '
 # 	res = {
 # 		'label':[],
 # 		'data':[]

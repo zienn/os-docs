@@ -7,7 +7,7 @@ from dbutil.dbutil import DB
 # import dbutil.
 db = DB(host="localhost", mysql_user="root", mysql_pass="", \
                 mysql_db="log")
-import table,datatable,chart,chartline,mapregion,mapvalue,mapline
+import table,datatable,chart,chartline,mapregion,mapvalue,mapline,reset
 
 @app.route('/')
 def index():

@@ -22,7 +22,7 @@ res_list = [(k[0],k[1],k[2],v) for k,v in res.items()]
 for s in res_list:
 	# if s[3]<5:
 		# continue
-	sql = 'insert log1 values ("%s","%s",%s,%s)' % s
+	sql = 'insert log values ("%s","%s",%s,%s)' % s
 	print sql
 	try:
 		cur.execute(sql)

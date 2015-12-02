@@ -89,7 +89,7 @@ cur = con.cursor()
 for s in res_list:
     if s[3]<5:
         continue
-    sql = 'insert log1 values ("%s","%s",%s,%s)' % s
+    sql = 'insert log values ("%s","%s",%s,%s)' % s
     try:
         cur.execute(sql)
     except Exception, e:
@@ -114,7 +114,7 @@ cur = con.cursor()
 @app.route('/')
 def index():
     table = '<table border="1">'
-    cur.execute('select * from log1')
+    cur.execute('select * from log')
     for c in cur.fetchall():
         table += '<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'%c
     table +='</table>'
@@ -154,7 +154,7 @@ if __name__ == '__main__':
 @app.route('/table')
 def table():
     table = '<table border="1">'
-    c = db.execute('select * from log1 where value>5')
+    c = db.execute('select * from log where value>5')
     for l in c.fetchall():
         table += '<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'%l
     table +='</table>'

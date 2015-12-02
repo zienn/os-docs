@@ -1,7 +1,7 @@
 
 -- 统计log
-drop table if exists log1;
-create table log1(
+drop table if exists log;
+create table log(
 	ip varchar(400),
 	url varchar(200),
 	status int,
