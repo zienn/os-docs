@@ -6,7 +6,7 @@
     - ppt 介绍的ppt
     - reboot实战班的项目之一
 * monitor
-    - 简易的实时内存监控系统
+    - 10min手写一个简易的实时内存监控系统
     - [博客地址](https://github.com/shengxinjing/my_blog/issues/1)
     - reboot实战班的项目之一
 * 基础
