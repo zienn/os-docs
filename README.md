@@ -1,5 +1,10 @@
 #python基础教程
 
+* log_visual（待完善）
+    - 日志可视化
+    - demo:实例代码
+    - ppt 介绍的ppt
+    - reboot实战班的项目之一
 * monitor
     - 简易的实时内存监控系统
     - [博客地址](https://github.com/shengxinjing/my_blog/issues/1)
@@ -7,7 +12,7 @@
 * 基础
     - python基础教程的ppt
 
-我是一只程序员，最近在写一个python的系列教程，帮助运维人员学python，在此记录一下。ppt基于nodeppt做的，博客文章会放到issue里
+> 我是一只程序员，最近在写一个python的系列教程，帮助运维人员学python，在此记录一下。ppt基于nodeppt做的，博客文章会放到issue里
 
 喜欢请star
 
