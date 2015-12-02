@@ -11,6 +11,7 @@ def getMem():
     free = int(f.readline().split()[1])
     buffers = int(f.readline().split()[1])
     cache = int(f.readline().split()[1])
+    f.close()
     mem_use = total-free-buffers-cache
     t = int(time.time())
     sql = 'insert into memory (memory,time) value (%s,%s)'%(mem_use/1024,t)
