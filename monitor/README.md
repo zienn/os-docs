@@ -1,6 +1,6 @@
 # 简易的内存监控系统
 
-## 视频正在转码链接
+## 腾讯视频链接
 录制中间网出问题了，重启了一下，所以有两部分
 * [视频1](http://v.qq.com/boke/gplay/6362f9ed32ee1bc6bcfe344f11a106c5_lyf0000015cvpaj_d0174xh1ft1.html)
 * [视频2](http://v.qq.com/boke/gplay/6362f9ed32ee1bc6bcfe344f11a106c5_lyf0000015cvpaj.html)
@@ -19,7 +19,7 @@
 其实所有的监控项，包括内存数据，都是从文件中读取的，大家执行以下 cat /proc/meminfo就可以看到关于内存的信息，我们关注的是前四行，总内存，空闲内存，缓冲和缓存大小
 
 计算内存占用量公式：
-> (总内存-空闲内存-缓冲-缓存)Mb
+> (总内存-空闲内存-缓冲-缓存)/1024Mb
 
 代码呼之欲出 monitor.py
 
@@ -446,7 +446,8 @@ $(function () {
 
 
 代码没有特别注意细节，希望大家喜欢
-<p>运维开发交流QQ群：<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=f03fd72ed353ccfc801d393529aed84e2a663334caba7af88aa2a29620636549"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="Reboot【二】" title="Reboot【二】"></a></p>
+运维开发交流QQ群：[![Reboot【二】](http://pub.idqqimg.com/wpa/images/group.png)]("http://shang.qq.com/wpa/qunwpa?idkey=f03fd72ed353ccfc801d393529aed84e2a663334caba7af88aa2a29620636549)
+
 
 欢迎大家关注公共号
 
