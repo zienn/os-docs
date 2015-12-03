@@ -1,5 +1,7 @@
 #python基础教程
 
+> 我是一只程序员，最近在写一个python的系列教程，帮助运维人员学python，在此记录一下。ppt基于nodeppt做的，博客文章会放到issue里
+
 * log_visual（待完善）
     - 日志可视化
     - demo:实例代码
@@ -20,7 +22,6 @@ todolist
 
 
 
-> 我是一只程序员，最近在写一个python的系列教程，帮助运维人员学python，在此记录一下。ppt基于nodeppt做的，博客文章会放到issue里
 
 
 [51reboot](http://51reboot.com) 专注高端运维开发
