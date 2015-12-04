@@ -1,7 +1,7 @@
 title: 日志可视化
 speaker: Woniuppp
 url: https://github.com/ksky521/nodePPT
-transition: glue
+transition: slide
 files: /js/demo.js,/css/demo.css,/js/zoom.js
 theme: colors
 
@@ -10,16 +10,27 @@ theme: colors
 [slide]
 
 # 日志可视化
-<small>演讲者：woniuppp</small>
-
+## 演讲者：woniuppp
+<small>基于python，前端基于echarts</small>
 
 [slide]
 ## 原材料
 ----
-* 一个标准的access_log日志 大概6W行
+* 一个标准的access_log日志 大概2W行
 * 老板想要这个日志的分析结果，每个url,ip,status分别访问多少次，把前几名统计出来看看
 * 分析出统计数据 展现结果
 
+[slide]
+## 很普通的日志，大概长这样
+
+```
+61.159.140.123 - - [23/Aug/2014:00:01:42 +0800] "GET /favicon.ico HTTP/1.1" 404 \ "-" "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36 LBBROWSER" "-"
+61.159.140.123 - - [23/Aug/2014:00:01:42 +0800] "GET /favicon.ico HTTP/1.1" 404 \ "-" "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36 LBBROWSER" "-"
+61.159.140.123 - - [23/Aug/2014:00:01:42 +0800] "GET /favicon.ico HTTP/1.1" 404 \ "-" "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36 LBBROWSER" "-"
+61.159.140.123 - - [23/Aug/2014:00:01:42 +0800] "GET /favicon.ico HTTP/1.1" 404 \ "-" "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.66 Safari/537.36 LBBROWSER" "-"
+66.249.64.5 - - [23/Aug/2014:00:02:16 +0800] "GET /data/uploads/2013/0519/09/small_51982ba18e012.jpg HTTP/1.1" 200 \ "-" "Googlebot-Image/1.0" "-"
+66.249.64.10 - - [23/Aug/2014:00:02:54 +0800] "GET /data/uploads/2013/0319/08/middle_5147b116e93b4.jpg HTTP/1.1" 200 \ "-" "Googlebot-Image/1.0" "-"
+```
 
 [slide]
 
@@ -31,11 +42,12 @@ theme: colors
 * 打印前10
 
 [slide]
-## python代码
+## talk is cheap, show me the <del>money</del> code!
+
 
 ```python
 
-f = open('../www_access_20140823.log')
+f = open('www_access_20140823.log')
 res = {}
 for l in f:
     arr = l.split(' ')
@@ -52,23 +64,23 @@ for k in sorted(res_list,key=lambda x:x[3],reverse=True)[:10]:
 [slide]
 ## 处理结果
 ```
-('118.112.143.148', '/images/cursor_zoom.cur', '404', 674)
-('118.112.143.148', '/images/cursor_minify.cur', '404', 662)
-('221.12.76.53', '/images/cursor_zoom.cur', '404', 220)
-('221.12.76.53', '/images/cursor_minify.cur', '404', 218)
-('123.174.51.164', '/public/js/weibo.js?20110824', '200', 116)
-('123.174.51.164', '/public/js/tbox/box.css?20110820', '200', 116)
-('123.174.51.164', '/public/themes/adreambox/main.css?20110820', '200', 116)
-('123.174.51.164', '/public/themes/adreambox/link.css', '200', 116)
-('123.174.51.164', '/public/js/jquery.jgrow.min.js', '200', 116)
-('123.174.51.164', '/public/themes/adreambox/images/btn_top.gif', '200', 116)
+('222.86.153.12', '/images/cursor_minify.cur', '404', 60)
+('222.86.153.12', '/images/cursor_zoom.cur', '404', 32)
+('58.253.6.133', '/images/cursor_minify.cur', '404', 32)
+('111.85.34.165', '/%3Ca%20href=', '404', 28)
+('58.253.6.133', '/images/cursor_zoom.cur', '404', 27)
+('218.29.111.117', '/images/cursor_zoom.cur', '404', 27)
+('218.29.111.117', '/images/cursor_minify.cur', '404', 26)
+('117.63.146.40', '/public/js/common.js?20110824', '200', 19)
+('117.63.146.40', '/favicon.ico', '404', 18)
+('117.63.146.40', '/public/js/weibo.js?20110824', '200', 16)
 ```
 
 [slide]
 ## 任务完成
 
 * 下一步粘到邮件里，或者生成一个csv文件发出去
-* 然而这是一个看脸的社会
+* 然而这是一个看脸的社会,运维也逃脱不了这个魔咒
 
 [slide]
 
@@ -77,6 +89,8 @@ for k in sorted(res_list,key=lambda x:x[3],reverse=True)[:10]:
 生成list之后，拼接sql，存入数据库
 
 [slide]
+## talk is cheap, show me the <del>money</del> code!
+
 ```python
 import MySQLdb as mysql
 con = mysql.connect(user='root',\
@@ -96,25 +110,23 @@ for s in res_list:
         pass
 ```
 
+
 [slide]
 ## 前端展现
+### talk is cheap, show me the <del>money</del> code!
 
 ```
 from flask import Flask,request,render_template
 app = Flask(__name__)
-
 import MySQLdb as mysql
-con = mysql.connect(user='root',\
-                    passwd='',\
-                    db='log',\
-                    host='localhost')
-con.autocommit(True)
+con = mysql.connect(user='xx',\
+                    passwd='xx',\
+                    db='xx')
 cur = con.cursor()
-
 @app.route('/')
 def index():
     table = '<table border="1">'
-    cur.execute('select * from log')
+    cur.execute('select * from log order by value desc limit 20; ')
     for c in cur.fetchall():
         table += '<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'%c
     table +='</table>'
@@ -125,9 +137,17 @@ if __name__ == '__main__':
 ```
 
 [slide]
-
+## 给老板一个url即可，老板想看随时能看
 ![表格](/00.png)
 
+[slide]
+## 但是老板表示有点丑
+
+![老板](http://7xjoq9.com1.z0.glb.clouddn.com/chatuchatu1.png)
+
+[slide]
+
+![表格](/datatable.png)
 
 [slide]
 ## 前端展现上做一些优化
@@ -138,62 +158,39 @@ if __name__ == '__main__':
 * 控制每页显示数量
 
 [slide]
-
-![表格](/01.png)
-
-[slide]
-
-![表格](/datatable.png)
+### 不动戳大
+![表格](http://7xjoq9.com1.z0.glb.clouddn.com/log1.gif)
 
 [slide]
 
-## python代码
+## 我们的console页面，提供几个汇总信息，那就更好啦
+### 比如根据http的status来个汇总
 
-```
-
-@app.route('/table')
-def table():
-    table = '<table border="1">'
-    c = db.execute('select * from log where value>5')
-    for l in c.fetchall():
-        table += '<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'%l
-    table +='</table>'
-    return table
-
-```
-
+![老板](http://7xjoq9.com1.z0.glb.clouddn.com/chatuchatu1.png)
 
 [slide]
 
-```
-{% if data %}
-<table class="table table-striped table-bordered table-hover" id="dataTables-example">
-    <thead>
-        <tr>
-            <th>IP</th>
-            ...
-        </tr>
-    </thead>
-    <tbody>
-        {% for d in data %}
-        <tr>
-            <td>{{d[0]}}</td>
-            <td class='wd100'>{{d[1]}}</td>
-            ...
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{% endif %}
+![](http://7xjoq9.com1.z0.glb.clouddn.com/chatutiaozhan.png)
 
-```
+
 
 [slide]
+## 难不倒我
+### 一句sql搞定
 
-```
-$('#dataTables-example').DataTable({
-    responsive: true,
-});
+```sql
+select status,sum(value) from log group by status
++--------+------------+
+| status | sum(value) |
++--------+------------+
+|    200 |      15529 |
+|    206 |          6 |
+|    301 |          2 |
+|    304 |       3549 |
+|    403 |          1 |
+|    404 |        847 |
++--------+------------+
+6 rows in set (0.02 sec)
 ```
 
 [slide]
@@ -205,13 +202,6 @@ $('#dataTables-example').DataTable({
 
 [slide]
 
-## 并不仅限于此
-### 拖拽重计算：304和404一起的比例肿么办
-
-![](/chart02.png)
-
-[slide]
-
 ## 其他功能
 
 * 图例开关
@@ -219,20 +209,122 @@ $('#dataTables-example').DataTable({
 * 数据视图
 * 直接导出图片
 
+[slide]
+
+## 可视化并不仅限于此
+<!-- ### 拖拽重计算：304和404一起的比例肿么办 -->
+
+![](http://7xjoq9.com1.z0.glb.clouddn.com/log2.gif)
+
+
 
 [slide]
 
-## 访问图
+## 上面只是举得小栗子
+### 如果你对时间更感兴趣，我们的log里也是有时间信息的,可以像下面这样
+### 统计量，时间轴拖动，保存图片，etc
+
+![](http://7xjoq9.com1.z0.glb.clouddn.com/log3.gif)
 
 
 [slide]
 
-## 区域图
-### 根据ip更友好和直观地显示数据
+## 更进一步
+### 如何让日志数据更加一目了然，让老板觉得你很有逼格呢
+![](http://7xjoq9.com1.z0.glb.clouddn.com/chatu1.png)
 
-![](/map01.png)
+[slide]
+
+### IP都是有地址位置的，定位每个ip的位置，画个地图出来汇总
+
+![](http://7xjoq9.com1.z0.glb.clouddn.com/logkaixin.png)
+
+[slide]
+## 地图是需要经纬度的，用第三方的ip库转换一下
+### http://developer.baidu.com/map/index.php?title=webapi/ip-api
+
+![](http://7xjoq9.com1.z0.glb.clouddn.com/loglog01.png)
+
+[slide]
+## talk is cheap, show me the <del>money</del> code!
+
+```python
+import urllib2
+import json
+key = 'q5mTrTGzCSVq5QmGpI9y18Bo'
+ipurl = 'http://api.map.baidu.com/location/ip?ak='+key+'&coor=bd09ll&ip='
+sqlarr = []
+def getGeo(ip):
+    try:
+        u = urllib2.urlopen(ipurl+ip)
+        page = json.load(u)
+        if 'content' in page:
+            point = page['content'].get('point')
+            print 'ip %s has geoX %s and geoY %s' % (ip,point['x'],point['y']) 
+    except:
+        print 'error'
+getGeo('202.198.16.3')
+# ip 202.198.16.3 has geoX 125.31364243 and geoY 43.89833761
+```
+
+[slide]
+## 就想玩网游时候，坐标可以定位一个人，经纬度可以再地图上定位一个点，画图展现
+
+![](http://7xjoq9.com1.z0.glb.clouddn.com/log4.gif)
+
+[slide]
+## 刚才那个图仅关注区域，进阶一下，还要关注访问量
+### 可以根据value筛选
+
+![](http://7xjoq9.com1.z0.glb.clouddn.com/log5.gif)
+
+[slide]
+## 进阶:多台机器的日志
+
+* 获取每个机器的hostname和ip，和日志数据一起存在数据库里
+* 一个表存日志，带上一个机器的id
+* 机器的id=>ip和经纬度
+* 最终统计访问量
+
+[slide]
+
+![](http://7xjoq9.com1.z0.glb.clouddn.com/log6.gif)
+
+[slide]
+## 大家具体需要哪个，可以继续扩展,给大家展现几个假数据的demo
+### 高逼格饼图展示状态汇总（假数据，可以替换为http_status）
+![](http://7xjoq9.com1.z0.glb.clouddn.com/log90.gif)
+
+[slide]
+## 人员权限树(假数据,可以作为运维人员权限展示)
+![](http://7xjoq9.com1.z0.glb.clouddn.com/log91.gif)
+
+[slide]
+## 流量图(假数据，可以作为机房之间，或者网卡的流量)
+![](http://7xjoq9.com1.z0.glb.clouddn.com/log92.gif)
+
+[slide]
+## 日志统计汇总（假数据，可以用来展示年日志数据汇总）
+
+![](http://7xjoq9.com1.z0.glb.clouddn.com/log93.gif)
+
+[slide]
+## 区域数据汇总饼图展示（假数据，可选择省份，生成饼图）
+![](http://7xjoq9.com1.z0.glb.clouddn.com/log94.gif)
+
+[slide]
+
+## 3D展示机房（网上盗图，后续会做一个类似的开源）
+### json生成，实时查看机器状态，点击时间
+
+![](http://7xjoq9.com1.z0.glb.clouddn.com/chatu74183cdd15be4002cc193d783b5911a7.png)
 
 
+[slide]
+
+# 谢谢！
+
+![](http://7xjoq9.com1.z0.glb.clouddn.com/erweima.jpg)
 
 
 

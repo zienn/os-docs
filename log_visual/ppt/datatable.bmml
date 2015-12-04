@@ -37,6 +37,10 @@
       </controlProperties>
     </control>
     <control controlID="10" controlTypeID="com.balsamiq.mockups::Webcam" x="298" y="519" w="-1" h="-1" measuredW="177" measuredH="146" zOrder="7" locked="false" isInGroup="-1"/>
-    <control controlID="11" controlTypeID="com.balsamiq.mockups::LineChart" x="905" y="370" w="-1" h="-1" measuredW="187" measuredH="175" zOrder="8" locked="false" isInGroup="-1"/>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::DataGrid" x="850" y="348" w="-1" h="-1" measuredW="354" measuredH="231" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>IP%20%5E%2C%20URK%20%5Ev%2C%20Http%u72B6%u6001%2C%20%u8BBF%u95EE%u91CF%20v%0A118.112.143.148%20%20%2C/cursor_zoom.cur%2C%20404%2C%20674%0A118.112.143.148%20%20%2C/cursor_minify%2C%20404%2C%20662%0A221.12.76.53%20%20%2C/xxx%2C%20404%2C%20220%0A221.12.76.53%20%20%2C/cursor_minify%2C%20404%2C%20218%0A123.174.51.164%20%20%2C/s/weibo.js%2C%20200%2C%20116%0A123.174.51.164%20%20%2C/box.css%3F%2C%20200%2C%20116%0A%20%0A%7B65L%2C%200R%2C%2035%2C%200C%7D</text>
+      </controlProperties>
+    </control>
   </controls>
 </mockup>
