@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>51reboot</title>
+
+	<link rel="stylesheet" href="/static/bootstrap.min.css">
+
+</head>
+<body>
+	<div id="main" style="height:400px;width:500px;margin:20px auto;"></div>
+	<script src='/static/jquery.min.js'></script>
+	<script src='/static/echarts-all.js'></script>
+	<script>	
+// 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('main'));
+        $.getJSON('/chartdata', function(res) {
+
+        	var option = {
+        		title: {
+        			text: '日志数据',
+        			subtext: '如假包换',
+        			x: 'center'
+        		},
+        		tooltip: {
+        			trigger: 'item',
+        			formatter: "{a} <br/>{b} : {c} ({d}%)"
+        		},
+        		legend: {
+        			orient: 'vertical',
+        			x: 'left',
+        			data: res.label
+        		},
+        		toolbox: {
+        			show: true,
+        			feature: {
+        				mark: {
+        					show: true
+        				},
+        				dataView: {
+        					show: true,
+        					readOnly: false
+        				},
+        				magicType: {
+        					show: true,
+        					type: ['pie', 'funnel'],
+        					option: {
+        						funnel: {
+        							x: '25%',
+        							width: '50%',
+        							funnelAlign: 'left',
+        							max: 1548
+        						}
+        					}
+        				},
+        				restore: {
+        					show: true
+        				},
+        				saveAsImage: {
+        					show: true
+        				}
+        			}
+        		},
+        		calculable: true,
+        		series: [{
+        			name: '访问数据',
+        			type: 'pie',
+        			radius: '55%',
+        			center: ['50%', '60%'],
+        			data: res.data
+        		}]
+        	};
+
+
+        	myChart.setOption(option);
+        })
+
+	</script>
+</body>
+</html>

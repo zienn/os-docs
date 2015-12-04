@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>51reboot</title>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px;width:500px;margin:20px auto;"></div>
+
+    <script src='/static/jquery.min.js'>	</script>
+    <!-- ECharts单文件引入 -->
+    <script src="/static/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('main'));
+
+        $.getJSON('/regiondata', function(res) {
+            console.log(res)
+            // console.log(res)
+            option = {
+                backgroundColor: '#1b1b1b',
+                color: [
+                    'green',
+                    'red',
+                    'yellow'
+                ],
+                title: {
+                    text: '日志ip区域展示',
+                    subtext: '真实nginx日志数据',
+                    x: 'center',
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data: res.label,
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                toolbox: {
+                    show: true,
+                    orient: 'vertical',
+                    x: 'right',
+                    y: 'center',
+                    feature: {
+                        saveAsImage: {
+                            show: true
+                        }
+                    }
+                },
+                series: [{
+                    name: 404,
+                    type: 'map',
+                    mapType: 'china',
+                    // roam:true,
+                    itemStyle: {
+                        normal: {
+                            borderColor: 'rgba(100,149,237,1)',
+                            borderWidth: 1.5,
+                            areaStyle: {
+                                color: '#1b1b1b'
+                            }
+                        }
+                    },
+                    data: [],
+                    markPoint: {
+                        symbol: 'emptyCircle',
+                        symbolSize: 4,
+                        large: true,
+                        effect: {
+                            show: true
+                        },
+                        data: res[404]
+                    }
+                },{
+                    name: 200,
+                    type: 'map',
+                    mapType: 'china',
+                    data: [],
+                    markPoint: {
+                        symbol: 'diamond',
+                        symbolSize: 4,
+                        large: true,
+                        effect: {
+                            show: true
+                        },
+                        data: res[200]
+                    }
+                },{
+                    name: 304,
+                    type: 'map',
+                    mapType: 'china',
+                    data: [],
+                    markPoint: {
+                        symbol: 'emptyCircle',
+                        symbolSize: 4,
+                        large: true,
+                        effect: {
+                            show: true
+                        },
+                        data: res[304]
+                    }
+                }, ]
+            };
+
+
+            // 为echarts对象加载数据 
+            myChart.setOption(option);
+        })
+    </script>
+</body>
