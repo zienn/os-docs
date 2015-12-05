@@ -1,9 +1,3 @@
-import time
-import MySQLdb as mysql
-
-db = mysql.connect(user="reboot",passwd="reboot123",db="memory",host="localhost")
-db.autocommit(True)
-cur = db.cursor()
 
 def getMem():
     with open('/proc/meminfo') as f:
@@ -13,8 +7,6 @@ def getMem():
         cache = int(f.readline().split()[1])
     mem_use = total-free-buffers-cache
     t = int(time.time())
-    sql = 'insert into memory (memory,time) value (%s,%s)'%(mem_use/1024,t)
-    cur.execute(sql)
     print mem_use/1024
     #print 'ok'
 while True:
