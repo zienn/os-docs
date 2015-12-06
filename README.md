@@ -5,6 +5,7 @@
 * log_visual（待完善）
     - 日志可视化
     - ppt 介绍的ppt
+    - [博客地址](https://github.com/shengxinjing/my_blog/issues/2)
 * monitor
     - 10min手写一个简易的实时内存监控系统
     - [博客地址](https://github.com/shengxinjing/my_blog/issues/1)
