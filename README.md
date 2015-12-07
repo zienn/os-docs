@@ -2,7 +2,7 @@
 
 > 我是一只程序员，最近在写一个python的系列教程，帮助运维人员学python，在此记录一下。ppt基于nodeppt做的，博客文章会放到issue里
 
-* log_visual（待完善）
+* log_visual
     - 日志可视化
     - ppt 介绍的ppt
     - [博客地址](https://github.com/shengxinjing/my_blog/issues/2)
