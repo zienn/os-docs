@@ -25,6 +25,7 @@
 - [ ] 简易版命令行weibo
 - [ ] 获取知行十大
 - [ ] http协议
+- [ ] python时间处理
 
 
 <p>运维开发交流QQ群：<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=f03fd72ed353ccfc801d393529aed84e2a663334caba7af88aa2a29620636549"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="Reboot【二】" title="Reboot【二】"></a></p>
