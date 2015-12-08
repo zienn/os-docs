@@ -2,6 +2,7 @@
 
 ## 日志文件和ppt
 
+[博客地址](https://github.com/shengxinjing/my_blog/issues/2)
 
 单文件启动和模板启动都有
 
