@@ -26,8 +26,6 @@
 - [ ] 初始化工单
 - [ ] 获取知行十大
 - [ ] listhost
-=======
->>>>>>> origin/master
 - [ ] http协议
 - [ ] python时间处理
 
