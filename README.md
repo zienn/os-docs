@@ -4,11 +4,10 @@
 
 * log_visual
     - 日志可视化
-    - ppt 介绍的ppt
-    - [博客地址](https://github.com/shengxinjing/my_blog/issues/2)
 * monitor
     - 10min手写一个简易的实时内存监控系统
-    - [博客地址](https://github.com/shengxinjing/my_blog/issues/1)
+* zhixing
+    - python小爬虫，获取知行论坛十大
 * 基础
     - python基础教程的ppt
 
@@ -16,8 +15,9 @@
 
 列个list，以后慢慢写，10min系列，欢迎大家添加这个list，我会慢慢写
 
-- [x] 监控内存 
-- [x] 日志可视化
+- [x] [监控内存](https://github.com/shengxinjing/my_blog/issues/1) 
+- [x] [日志可视化](https://github.com/shengxinjing/my_blog/issues/2)
+- [x] [获取知行十大](https://github.com/shengxinjing/my_blog/issues/5)
 - [ ] 爬虫 pc的知乎专栏，生成pdf
 - [ ] reboot定制版交换机流量可视化
 - [ ] 10分钟搭cmdb
@@ -26,6 +26,8 @@
 - [ ] 初始化工单
 - [ ] 获取知行十大
 - [ ] listhost
+=======
+>>>>>>> origin/master
 - [ ] http协议
 - [ ] python时间处理
 
