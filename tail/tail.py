@@ -34,20 +34,29 @@ class Tail():
 			print e
 	def showLastLine(self, n):
 		# 一行大概100个吧 
-		len_line = 1000
+		len_line = 100
 		print -n*len_line
 		self._file.seek(-n*len_line, 2)
 		last_words = self._file.read()
+	
 		if last_words.count('\n')>10:
 
 			last_lines = last_words.split('\n')[-10:]
 			for line in last_lines:
 				self.callback(line+'\n')
+		else:
+			
+			print last_words.count('\n')
 
 
 # print range(20)[-10:]
-py_tail = Tail('test.txt')
-py_tail.follow()
+# py_tail = Tail('test.txt')
+# py_tail.follow()
+
+d1 = {'a':1,'b':2}
+d2 = {'b':2,'a':1}
+import json
+print json.dumps(d1)
 
 # def test_tail(line):
 #     print 'xx'+line+'xx'
