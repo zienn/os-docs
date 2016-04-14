@@ -20,8 +20,9 @@ class Tail():
 
 		with open(self.file_name) as f:
 			self._file = f
-			self.showLastLine(n)
 			self._file.seek(0,2)
+			self.file_length = self._file.tell()
+			self.showLastLine(n)
 			while True:
 				line = self._file.readline()
 				if line:
@@ -33,7 +34,7 @@ class Tail():
 			print e
 	def showLastLine(self, n):
 		# 一行大概100个吧 
-		len_line = 100
+		len_line = 1000
 		print -n*len_line
 		self._file.seek(-n*len_line, 2)
 		last_words = self._file.read()
@@ -41,7 +42,7 @@ class Tail():
 
 			last_lines = last_words.split('\n')[-10:]
 			for line in last_lines:
-				self.callback(line)
+				self.callback(line+'\n')
 
 
 # print range(20)[-10:]
