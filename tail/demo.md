@@ -8,7 +8,7 @@
 
 希望大家读这篇文章前，对python基础、处理文件和常用模块有一个简单的了解，知道下面几个名词是啥
 
-```
+```python
 
 open('a.txt')
 file.seek
@@ -17,7 +17,7 @@ time.sleep()
 
 ```
 
-下面思路限于我个人知识，免不了有错误和考虑不周的，希望大家有更好的方法提出来，我随时优化代码,题目的感觉没啥太多的坑，下面让天真烂漫的蜗牛教大家用python的思路
+下面思路限于我个人知识，免不了有错误和考虑不周的，希望大家有更好的方法提出来，我随时优化代码,题目的感觉没啥太多的坑，下面让天真烂漫的蜗牛教大家用python实现
 
 ## 怎么用python实现
 
@@ -70,7 +70,7 @@ with open('test.txt') as f:
 
 实例代码如下
 
-```
+```python
 
 # coding=utf-8
 import sys
@@ -98,7 +98,7 @@ class Tail():
 
 使用方法:
 
-```
+```python
 
 # 使用默认的sys.stdout.write打印到屏幕
 py_tail = Tail('test.txt')
@@ -125,7 +125,7 @@ py_tail1.follow()
 
 我们知道，readlines可以获取所有内容，并且分行，代码呼之欲出，获取list最后10行很简单有么有,切片妥妥的
 
-```
+```python
 # 演示代码，说明核心逻辑，完整代码在下面
 last_lines = f.readlines()[-10:]
 for line in last_lines:
@@ -136,7 +136,7 @@ for line in last_lines:
 
 此时代码变成这样了
 
-```
+```python
 
 import sys
 import time
@@ -168,7 +168,7 @@ class Tail():
 
 ### 更进一步：大的日志怎么办
 
-此时代码有7分时很随意啦，但是如果文件特别大呢，特别是日志文件，很容易几个G，我们只需要最后几行，全部读出来内存受不了，所以我们要继续优化showLastLine函数，我觉得这才是这题的难点所在
+但是如果文件特别大呢，特别是日志文件，很容易几个G，我们只需要最后几行，全部读出来内存受不了，所以我们要继续优化showLastLine函数，我觉得这才是这题的难点所在
 
 大概的思路如下
 
@@ -185,7 +185,7 @@ class Tail():
 
 逻辑清晰以后，代码就呼之欲出啦
 
-```
+```python
 # coding=utf-8
 import sys
 import time
@@ -240,7 +240,7 @@ if __name__ == '__main__':
 加上注释的版本
 
 
-```
+```python
 # coding=utf-8
 import sys
 import time
@@ -330,7 +330,7 @@ if __name__ == '__main__':
 
 最后大杀器 如果写出来这个，基本面试官会直接
 
-```
+```python
 
 import os
 def tail(file_name):
