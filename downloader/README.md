@@ -49,6 +49,7 @@ with open('pc.jpg','w') as f:
 ## 拆解任务
 
 为了完成这个任务，我们首先要知道数据到底有多大，然后把数据分块去取就OK啦，我们要对http协议有一个很好的了解
+
 * 用head方法请求数据，返回只有http头信息，没有主题部分
     - 我们从头信息Content-length的值，知道资源的大小，比如有50字节
 * 比如我们要分四个线程，每个线程去取大概1/4即可
@@ -68,8 +69,8 @@ with open('pc.jpg','w') as f:
 
 # range测试代码
 import requests
-# http头信息，指定获取前10000个字节
-headers={'Range':'Bytes=0-10000','Accept-Encoding':'*'}
+# http头信息，指定获取前15000个字节
+headers={'Range':'Bytes=0-15000','Accept-Encoding':'*'}
 res=requests.get('http://51reboot.com/src/blogimg/pc.jpg',headers=headers)
 
 with open('pc.jpg','w') as f:
