@@ -2,7 +2,7 @@
 
 ![](http://51reboot.com/src/blogimg/downloader/01.png)
 
-今天群里看到有人问关于python多线程写文件的问题，联想到这是reboot的架构师班的入学题，我想了一下，感觉坑和考察的点还挺多，可以当成一个面试题来问，简单说一下我的想法和思路吧，涉及的代码在[github](http://51reboot.com/src/blogimg/downloader/04.png)
+今天群里看到有人问关于python多线程写文件的问题，联想到这是reboot的架构师班的入学题，我想了一下，感觉坑和考察的点还挺多，可以当成一个面试题来问，简单说一下我的想法和思路吧，涉及的代码和注释在[github](http://51reboot.com/src/blogimg/downloader/04.png)
 
 本文需要一定的python基础，希望大家对下面几个知识点有所了解
 
