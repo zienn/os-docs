@@ -1,8 +1,7 @@
-# python10min系列之多线程下载器
 
 ![](http://51reboot.com/src/blogimg/downloader/01.png)
 
-今天群里看到有人问关于python多线程写文件的问题，联想到这是reboot的架构师班的入学题，我想了一下，感觉坑和考察的点还挺多，可以当成一个面试题来问，简单说一下我的想法和思路吧，涉及的代码和注释在[github](http://51reboot.com/src/blogimg/downloader/04.png)
+今天群里看到有人问关于python多线程写文件的问题，联想到这是reboot的架构师班的入学题，我想了一下，感觉坑和考察的点还挺多，可以当成一个面试题来问，简单说一下我的想法和思路吧，涉及的代码和注释在[github](https://github.com/shengxinjing/my_blog/blob/master/downloader/downloader.py) 跪求star
 
 本文需要一定的python基础，希望大家对下面几个知识点有所了解
 
@@ -126,11 +125,11 @@ class downloader:
         f = open(self.name,'w')
         for ran in self.get_range():
             # 拼出Range参数 获取分片数据
-            r1 = requests.get(self.url,headers={'Range':'Bytes=%s-%s' % ran,'Accept-Encoding':'*'})
+            r = requests.get(self.url,headers={'Range':'Bytes=%s-%s' % ran,'Accept-Encoding':'*'})
             # seek到相应位置
             f.seek(ran[0])
             # 写数据
-            f.write(r1.content)
+            f.write(r.content)
         f.close()
 
 if __name__=='__main__':
@@ -265,8 +264,8 @@ def run(self):
 * 各种容错处理
 * 正所谓女人的迪奥，男人的奥利奥，这篇文章，你值得拥有
 
-大概就是这样了，我也是正在学习python，文章代表我个人看法，有错误不可避免，欢迎大家指正，共同学习,跪求大家star
+大概就是这样了，我也是正在学习python，文章代表我个人看法，有错误不可避免，欢迎大家指正，共同学习，本文完整代码在[github](https://github.com/shengxinjing/my_blog/blob/master/downloader/downloader.py),跪求大家star
 
-最后做个小广告，欢迎大家关注公共号,高品质运维开发，我们每周五晚上还会做线上公开课，加QQ368573673报名即可，都是关于linux，运维，python和前端的相关内容
+最后做个小广告，欢迎大家关注公共号,高品质运维开发，我们每周五晚上还会做线上公开课，加QQ群368573673报名即可，都是关于linux，运维，python和前端的相关内容
 
-![](http://pythonbook.applinzi.com/img/erweima.jpg)
+![](http://51reboot.com/src/blogimg/erweima.jpg)
