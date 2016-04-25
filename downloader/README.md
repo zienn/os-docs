@@ -1,4 +1,6 @@
 
+# python10min系列之多线程下载器
+
 ![](http://51reboot.com/src/blogimg/downloader/01.png)
 
 今天群里看到有人问关于python多线程写文件的问题，联想到这是reboot的架构师班的入学题，我想了一下，感觉坑和考察的点还挺多，可以当成一个面试题来问，简单说一下我的想法和思路吧，涉及的代码和注释在[github](https://github.com/shengxinjing/my_blog/blob/master/downloader/downloader.py) 跪求star
@@ -57,7 +59,7 @@ with open('pc.jpg','w') as f:
     - file.seek
 * 为了方便理解，一开始我们先用单线程的跑通 流程图大概如下
 
-![](http://51reboot.com/src/blogimg/downloader/03.png)
+![](http://51reboot.com/src/blogimg/downloader/033.png)
 
 思路清晰了，代码也就呼之欲出了，我们先测试一下range头信息
 
