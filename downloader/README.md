@@ -2,7 +2,7 @@
 
 ![](http://51reboot.com/src/blogimg/downloader/01.png)
 
-今天群里看到有人问关于python多线程写文件的问题，联想到这是reboot的架构师班的入学题，我想了一下，感觉坑和考察的点还挺多，可以当成一个面试题来问，简单说一下我的想法和思路吧
+今天群里看到有人问关于python多线程写文件的问题，联想到这是reboot的架构师班的入学题，我想了一下，感觉坑和考察的点还挺多，可以当成一个面试题来问，简单说一下我的想法和思路吧，涉及的代码在[github](http://51reboot.com/src/blogimg/downloader/04.png)
 
 本文需要一定的python基础，希望大家对下面几个知识点有所了解
 
@@ -25,7 +25,7 @@ requests模块发请求
 python的requests模块很好的封装了http请求，我们选择用它来发送http的get请求，然后写入本地文件即可（关于requests和http，以及python处理文件的具体介绍，可以百度或者持续关注，后面我会写），思路既然清楚了，代码就呼之欲出了
 
 
-```
+```python
 # 简单粗暴的下载
 import requests
 
@@ -64,9 +64,9 @@ with open('pc.jpg','w') as f:
 > http头信息中的Range信息，用于请求头中，指定第一个字节的位置和最后一个字节的位置，如1-12，如果省略第二个书，就认为取到最后，比如36-
 
 
-```
-# range测试代码
+```python
 
+# range测试代码
 import requests
 # http头信息，指定获取前10000个字节
 headers={'Range':'Bytes=0-10000','Accept-Encoding':'*'}
@@ -75,13 +75,11 @@ res=requests.get('http://51reboot.com/src/blogimg/pc.jpg',headers=headers)
 with open('pc.jpg','w') as f:
     f.write(res.content)
 
-
-
 ```
 
 我们得到了这个，目测range是对的
 
-![](http://51reboot.com/src/blogimg/downloader/04.png)
+![](http://51reboot.com/src/blogimg/downloader/04.jpg)
 
 继续丰富我们的代码
 
@@ -92,10 +90,8 @@ with open('pc.jpg','w') as f:
 * 先写单线程，逐步优化
 * 代码呼之欲出了
 
-```
-
+```python
 import requests
-
 # 下载器的类
 class downloader:
     # 构造函数
@@ -155,8 +151,7 @@ if __name__=='__main__':
 * 代码如下
 
 
-```
-
+```python
 import requests
 import threading
 
@@ -224,7 +219,7 @@ download pc.jpg load success
 
 run函数做了修改，加了多线程的东西，加了一个download函数专门用来下载数据块，这俩函数详细解释如下
 
-```
+```python
 
 def download(self,start,end):
     #拼接Range字段,accept字段支持所有编码
@@ -267,6 +262,7 @@ def run(self):
     - 支持python downloader.py url num这种写法
     - 参数数量不对或者格式不对时报错
 * 各种容错处理
+* 正所谓女人的迪奥，男人的奥利奥，这篇文章，你值得拥有
 
 大概就是这样了，我也是正在学习python，文章代表我个人看法，有错误不可避免，欢迎大家指正，共同学习,跪求大家star
 
