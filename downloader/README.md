@@ -78,7 +78,7 @@ with open('pc.jpg','w') as f:
 
 ```
 
-我们得到了这个，目测range是对的
+我们得到了头像的前15000个字节，如下图，目测range是对的
 
 ![](http://51reboot.com/src/blogimg/downloader/04.jpg)
 
