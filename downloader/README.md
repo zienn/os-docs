@@ -57,13 +57,13 @@ with open('pc.jpg','w') as f:
     - 50/4=12，所以前几个线程每人取12个字节，最后一个现成取剩下的即可
 * 每个线程取到相应的内容，文件中seek到相应的位置再写入即可
     - file.seek
-* 为了方便理解，一开始我们先用单线程的跑通 流程图大概如下
+* 为了方便理解，一开始我们先用单线程的跑通 流程图大概如下（图不清戳大）
 
-![](http://51reboot.com/src/blogimg/downloader/033.png)（图不清戳大）
+![](http://51reboot.com/src/blogimg/downloader/033.png)
 
 思路清晰了，代码也就呼之欲出了，我们先测试一下range头信息
 
-> http头信息中的Range信息，用于请求头中，指定第一个字节的位置和最后一个字节的位置，如1-12，如果省略第二个书，就认为取到最后，比如36-
+> http头信息中的Range信息，用于请求头中，指定第一个字节的位置和最后一个字节的位置，如1-12，如果省略第二个数，就认为取到最后，比如36-
 
 
 ```python
@@ -177,6 +177,7 @@ class downloader:
     def download(self,start,end):
         headers={'Range':'Bytes=%s-%s' % (start,end),'Accept-Encoding':'*'}
         res = requests.get(self.url,headers=headers)
+        print '%s:%s download success'%(start,end)
         self.fd.seek(start)
         self.fd.write(res.content)
     def run(self):
@@ -214,6 +215,14 @@ thread 4 start:10760,end:13450
 thread 5 start:13450,end:16140
 thread 6 start:16140,end:18830
 thread 7 start:18830,end:
+0:2690 is end
+2690:5380 is end
+13450:16140 is end
+10760:13450 is end
+5380:8070 is end
+8070:10760 is end
+18830: is end
+16140:18830 is end
 download pc.jpg load success
 
 ```
@@ -227,6 +236,7 @@ def download(self,start,end):
     #拼接Range字段,accept字段支持所有编码
     headers={'Range':'Bytes=%s-%s' % (start,end),'Accept-Encoding':'*'}
     res = requests.get(self.url,headers=headers)
+    print '%s:%s download success'%(start,end)
     #seek到start位置
     self.fd.seek(start)
     self.fd.write(res.content)
@@ -271,3 +281,4 @@ def run(self):
 最后做个小广告，欢迎大家关注公共号,高品质运维开发，我们每周五晚上还会做线上公开课，加QQ群368573673报名即可，都是关于linux，运维，python和前端的相关内容
 
 ![](http://51reboot.com/src/blogimg/erweima.jpg)
+
