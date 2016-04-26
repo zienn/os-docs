@@ -40,7 +40,7 @@ with open('pc.jpg','w') as f:
 
 上面代码功能太少了，注意 ，我们的要求是多线程下载，这种简单粗暴的下载完全不符合要求，所谓多线程，你可以理解为仓库里有很多很多袋奥利奥饼干，老板让我去都搬到公司来放好，而且要按照原顺序放好
 
-上面的代码，大概就是我一个人去仓库，把所有奥利奥一次性拿回来，大概流程如下
+上面的代码，大概就是我一个人去仓库，把所有奥利奥一次性拿回来，大概流程如下（图不清戳大）
 
 ![](http://51reboot.com/src/blogimg/downloader/02.png)
 
@@ -59,7 +59,7 @@ with open('pc.jpg','w') as f:
     - file.seek
 * 为了方便理解，一开始我们先用单线程的跑通 流程图大概如下
 
-![](http://51reboot.com/src/blogimg/downloader/033.png)
+![](http://51reboot.com/src/blogimg/downloader/033.png)（图不清戳大）
 
 思路清晰了，代码也就呼之欲出了，我们先测试一下range头信息
 
