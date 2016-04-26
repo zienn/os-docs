@@ -36,6 +36,7 @@ class downloader:
         # 获取数据段
         res = requests.get(self.url,headers=headers)
         # seek到指定位置
+        print '%s:%s download success'%(start,end)
         self.fd.seek(start)
         self.fd.write(res.content)
     def run(self):
