@@ -99,7 +99,7 @@ class Downloader():
         ranges = self.get_ranges()
         if ranges:
             result = self.pool.map(self._download, ranges)
-        self._save(result)
+            self._save(result)
 
 if __name__ == '__main__':
     url = 'http://51reboot.com/src/blogimg/pc.jpg'
