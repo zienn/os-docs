@@ -1,65 +1,107 @@
+# encoding: utf-8
 
 import requests
-import threading
+from multiprocessing.dummy import Pool
 
-class downloader:
-    # 构造函数
-    def __init__(self):
-        # 设置url
-        self.url='http://51reboot.com/src/blogimg/pc.jpg'
-        # 设置线程数
-        self.num=8
-        # 文件名从url最后取
-        self.name=self.url.split('/')[-1]
-        # 用head方式去访问资源
-        r = requests.head(self.url)
-        # 取出资源的字节数
-        self.total = int(r.headers['Content-Length'])
-        print 'total is %s' % (self.total)
-    def get_range(self):
-        ranges=[]
-        # 比如total是50,线程数是4个。offset就是12
-        offset = int(self.total/self.num)
-        for i in  range(self.num):
-            if i==self.num-1:
-                # 最后一个线程，不指定结束位置，取到最后
-                ranges.append((i*offset,''))
-            else:
-                # 没个线程取得区间
-                ranges.append((i*offset,(i+1)*offset))
-        # range大概是[(0,12),(12,24),(25,36),(36,'')]
-        return ranges
-            
-        return ranges
-    def download(self,start,end):
-        headers={'Range':'Bytes=%s-%s' % (start,end),'Accept-Encoding':'*'}
-        # 获取数据段
-        res = requests.get(self.url,headers=headers)
-        # seek到指定位置
-        print '%s:%s download success'%(start,end)
-        self.fd.seek(start)
-        self.fd.write(res.content)
-    def run(self):
-        # 打开文件，文件对象存在self里
-        self.fd =  open(self.name,'w')
-        thread_list = []
 
-        n = 0
-        for ran in self.get_range():
-            start,end = ran
-            print 'thread %d start:%s,end:%s'%(n,start,end)
-            n+=1
-            # 开线程
-            thread = threading.Thread(target=self.download,args=(start,end))
-            thread.start()
-            thread_list.append(thread)
-        for i in thread_list:
-            # 设置等待
-            i.join()
-        print 'download %s load success'%(self.name)
-        self.fd.close()
-if __name__=='__main__':
-    # 新建实例
-    down = downloader()
-    # 执行run方法
-    down.run()
+class Downloader():
+    __slots__ = ['url', 'name', 'length', 'offset', 'pool']
+
+    url = None
+    name = None
+    length = None
+    offset = None
+    pool = None
+
+    def __init__(self, url):
+        self.url = url
+        self.get_pool()
+        self.get_name()
+        self.get_length()
+        self.get_offset()
+    
+    def get_pool(self, processes=None):
+        '''
+        获取多线程池，不指定线程数时，使用系统默认值
+        不建议指定线程数量，在不同的机器上，过多或过少的线程，反而会因为管理线程耗费额外的开销
+        可以尝试指定不同的线程数，对比处理速度
+        '''
+
+        if processes and type(processes) is int:
+            self.pool = Pool(processes)
+        else:
+            self.pool = Pool()
+
+    def get_name(self):
+        '''
+        获取保存文件名
+        '''
+
+        self.name = url.split('/')[-1]
+
+    def get_length(self):
+        '''
+        获取下载文件长度
+        '''
+
+        response = requests.head(self.url)
+        if response.ok:
+            self.length = int(response.headers.get('content-length', 0))
+        else:
+            self.length = None
+
+    def get_offset(self):
+        '''
+        计算分块下载长度
+        注意 python 中运算符「/」，如果两边的数都是整数，计算的结果也是整数
+        '''
+        if self.length and self.pool:
+            self.offset = self.length / self.pool._processes
+
+    def get_ranges(self):
+        '''
+        计算分块下载时，各分块的起始位置
+        '''
+
+        if self.offset:
+            ranges = range(0, self.length, self.offset)
+            ranges = [(start, start + self.offset) for start in ranges]
+            return ranges
+        else:
+            return []
+
+    def _save(self, data):
+        '''
+        使用 seek 将分块下载到的数据写到文件中指定的位置
+        '''
+
+        with open(self.name, 'w') as _file:
+            for _data in data:
+                _file.seek(_data[0][0])
+                _file.write(_data[1])
+
+    def _download(self, _range):
+        '''
+        单线程下载指定区块数据
+        '''
+
+        headers = {'Range': 'Bytes=%d-%d' % _range}
+        response  = requests.get(self.url, headers=headers)
+        if response.ok:
+            return (_range, response.content)
+        else:
+            return (_range, '')
+
+    def download(self):
+        '''
+        分块下载数据，注意这里的 Pool.map 用法
+        '''
+        ranges = self.get_ranges()
+        if ranges:
+            result = self.pool.map(self._download, ranges)
+        self._save(result)
+
+if __name__ == '__main__':
+    url = 'http://51reboot.com/src/blogimg/pc.jpg'
+    downloader = Downloader(url)
+    downloader.download()
