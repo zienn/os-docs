@@ -1,0 +1,54 @@
+<!--index.wxml-->
+
+
+<view class="weui-panel__bd" wx:if="{{headImg}}">
+  <image class='head-img' mode='widthFix' src='{{headImg}}'></image>
+
+  <view class="title">{{imgTitle}}</view>
+
+  <swiper circular="true" indicator-active-color="#48c13d" bindchange='changeImg' indicator-dots="true"
+    autoplay="true" interval="5000" duration="1000">
+    <block wx:for="{{imgList}}">
+      <swiper-item>
+        <image src="http://zhixing.bjtu.edu.cn/{{item.img}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="title">热点聚焦</view>
+  
+  <view url="" bindtap='rentBook' wx:for="{{top3}}" wx:for-index="idx" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+      <view class="weui-media-box__title">{{idx+1}} {{item.title}}</view>
+      <view class="weui-media-box__desc">{{item.sub}}</view>
+    </view>
+  </view>
+
+  <view class="title">十大</view>
+
+  <view url="" wx:for="{{top10}}" wx:for-index="idx" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+      <view class="weui-media-box__title">{{idx+4}} {{item.title}}</view>
+      <view class="weui-cell__ft">{{item.user}}</view>
+    </view>
+  </view>
+</view>
+<view wx:else>
+    <view class="title">
+        加载数据中
+    </view>
+    <view class="title">
+        由于没经过官方认证，可能偶尔获取失败
+    </view>
+    <view class="title">
+        如等待时间过长请点击下面的头像重新加载
+    </view>
+</view>
+
+<view class="container">
+  <view  class="userinfo">
+    <image bindtap='reload' class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+        
+</view>

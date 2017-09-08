@@ -1,0 +1,14 @@
+{
+  "name": "zhixing",
+  "version": "0.0.1",
+  "author": "bae",
+  "description": "The first bae nodejs app!",
+  "scripts": {
+    "start": "node --harmony server.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.15.3",
+    "request": "^2.81.0"
+  }
+}
