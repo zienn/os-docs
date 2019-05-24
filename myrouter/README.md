@@ -1,4 +1,4 @@
-# krouter
+# my-vue-router
 
 ## Project setup
 ```
