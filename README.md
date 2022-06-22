@@ -21,15 +21,6 @@
 - [x] [10分钟搭cmdb](http://shengxinjing.cn/woniu-cmdb/)
 - [x] [去过的地方可视化](http://shengxinjing.cn/footprint/)
 - [ ] 爬虫 pc的知乎专栏，生成pdf
-- [ ] 爬虫模拟登录
-- [ ] reboot定制版交换机流量可视化
-- [ ] 批量ssh
-- [ ] 简易版命令行weibo
-- [ ] 初始化工单
-- [ ] listhost
-- [ ] http协议
-- [ ] python时间处理
-
 
 
 
