@@ -17,6 +17,7 @@ export default {
       // { text: '设计题', link: '/design/' },
       // { text: '前端架构师指南', link: 'https://web-architect.netlify.app/' },
       // { text: '前端源码漫游记', link: 'https://source-tour.netlify.app/' },
+      { text: '学习路线图', link: 'https://roadmap.shengxinjing.cn/' },
     ],
     socialLinks: [
       { icon: 'discord', link: 'https://discord.gg/V3ZHdnZErY' },
