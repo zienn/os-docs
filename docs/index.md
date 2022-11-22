@@ -17,16 +17,19 @@ hero:
       text: 使用说明
       link: /desc
     - theme: alt
-      text: JS
+      text: 前端面试
       link: /js
     - theme: alt
-      text: TS
+      text: 玩转Vue3
+      link: /js
+    - theme: alt
+      text: 玩转React18
       link: /ts
     - theme: alt
-      text: Vue
+      text: 企业级项目实战
       link: /vue
     - theme: alt
-      text: React
+      text: 框架源码解析
       link: /react
     - theme: alt
       text: Node
