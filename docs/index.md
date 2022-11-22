@@ -38,8 +38,8 @@ hero:
 features:
   - title: 选题丰富
     details: 来源社区热门面试题 & 挑战项目，Javascript, Typescript, Vue, React, Node.js, 系统设计题
-  - title: 在线体验
-    details: 基于stackblitz, leetcode, codesandbox等在线编码环境
+  - title: 知识体系完善
+    details: 企业级实战，框架源码，热门面试题一网打尽
   - title: 配套视频讲解
     details: 逐行代码演示+讲解，手把手助你进阶前端
   - title: 社区共建
