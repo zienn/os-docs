@@ -8,13 +8,16 @@ export default {
   ],
   // base:"/src/"
   themeConfig: {
+    me:{
+      wechat:"https://cdn.jsdelivr.net/gh/shengxinjing/static/wechat.jpg"
+    },
     logo: 'https://cdn.jsdelivr.net/gh/shengxinjing/static/woniu.png',
     nav: [
       // { text: 'Vue3', link: '/vue/' },
       // { text: 'React', link: '/react/' },
       // { text: 'JS', link: '/js/' },
       // { text: 'TS', link: '/ts/' },
-      // { text: '设计题', link: '/design/' },
+      { text: '一起进步', link: '/about' },
       { text: '前端架构师指南', link: 'https://web-architect.netlify.app/' },
       { text: '前端源码漫游记', link: 'https://source-tour.netlify.app/' },
       { text: '学习路线图', link: 'https://roadmap.shengxinjing.cn/' },
@@ -109,5 +112,9 @@ export default {
 
       ],
     },
+    footer: {
+      message: '文明其精神，野蛮其体魄',
+      copyright: ' Copyright © 京ICP备18000331号-1'
+    }
   }
 }
