@@ -1,3 +1,6 @@
+---
+aside: false
+---
 # 热身
 
 大概就是让你熟悉一下Vue.js的渲染，把页面渲染的`Hello World`改成`msg`就可以了，这里
