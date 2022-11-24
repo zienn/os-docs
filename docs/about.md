@@ -24,7 +24,7 @@ const members = [
 你可以收获前端学习小秘籍，一起学习`前端进阶`的知识，我会的都可以聊
 
 
-<VPTeamMembers size="medium" :members="members" />
+<!-- <VPTeamMembers size="medium" :members="members" /> -->
 
 
 
