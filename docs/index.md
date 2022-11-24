@@ -2,7 +2,7 @@
 layout: home
 sidebar: false
 
-title: 前端进阶指南
+title: 大圣前端进阶指南
 titleTemplate: 解决前端进阶的难点
 
 hero:

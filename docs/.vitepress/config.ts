@@ -1,7 +1,7 @@
 
 export default {
-  title: '前端进阶指南',
-  description: '前端进阶指南|Vue3|React|Vite|Cli|项目实战',
+  title: '大圣前端进阶指南',
+  description: '大圣前端进阶指南|Vue3|React|Vite|Cli|项目实战',
   head: [
     // ['link', { rel: 'icon', href: 'https://cdn.jsdelivr.net/gh/shengxinjing/static/element3.ico', type: 'image/svg+xml' }],
     ['link', { rel: 'alternate icon', href: 'https://cdn.jsdelivr.net/gh/shengxinjing/static/woniu.png', type: 'image/png', sizes: '16x16' }],
