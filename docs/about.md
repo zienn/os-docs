@@ -1,6 +1,7 @@
 
 <script setup>
 import { VPTeamMembers } from 'vitepress/theme'
+import { useData } from 'vitepress'
 
 const members = [
   {
@@ -13,8 +14,8 @@ const members = [
     ]
   }
 ]
+const { site,theme } = useData()
 </script>
-
 
 
 # 关于我
@@ -28,7 +29,7 @@ const members = [
 
 
 
-<img src="https://cdn.jsdelivr.net/gh/shengxinjing/static/xiao3.jpg" width="280">
+<img :src="theme.me.wechat" width="280">
 
 
 ## 大圣前端私教课

@@ -9,7 +9,9 @@ export default {
   // base:"/src/"
   themeConfig: {
     me:{
-      wechat:"https://cdn.jsdelivr.net/gh/shengxinjing/static/wechat.jpg"
+      // wechat:"https://cdn.jsdelivr.net/gh/shengxinjing/static/wechat.jpg"
+      wechat:"https://cdn.jsdelivr.net/gh/shengxinjing/static/jingu2.png"
+      // wechat:"https://cdn.jsdelivr.net/gh/shengxinjing/static/xiao3.jpg"
     },
     logo: 'https://cdn.jsdelivr.net/gh/shengxinjing/static/woniu.png',
     nav: [
@@ -68,8 +70,12 @@ export default {
         },
         {
           text: 'JS挑战',
+          link:"/vue/",
           items: [
-            { text: '开发步骤', link: '/js/' },
+            { text: '开发步骤', items:[
+              {text:'测试',link:"/vue/"},
+              {text:'测试',link:"/vue/"},
+          ]},
           ],
         },
         {
