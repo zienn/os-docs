@@ -1,6 +1,6 @@
 import { defineConfigWithTheme } from 'vitepress'
 import type { Config as ThemeConfig } from '@vue/theme'
-
+// import taskLists from 'markdown-it-task-lists'
 
 export default defineConfigWithTheme<ThemeConfig>({
   title: '大圣前端进阶指南',
@@ -61,8 +61,13 @@ export default defineConfigWithTheme<ThemeConfig>({
     ],
     lastUpdatedText:"更新时间",
     editLink: {
-      pattern: 'https://github.com/shengxinjing/fe-advanced-interview/docs/:path',
+      pattern: 'https://github.com/shengxinjing/fe-advanced-interview/tree/main/docs/:path',
       text: '编辑页面'
+    },
+    markdown:{
+      config(md){
+        // md.use(taskLists)
+      } 
     },
     sidebar: {
       '/': [
