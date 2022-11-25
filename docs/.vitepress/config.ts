@@ -25,6 +25,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       { text: '🔥一起进步', link: '/about' },
       { text: '路线图', link: 'https://roadmap.shengxinjing.cn/' },
     ],
+    
     socialLinks: [
       { icon: 'discord', link: 'https://discord.gg/V3ZHdnZErY' },
       { icon: 'github', link: 'https://github.com/shengxinjing/fe-advanced-interview' },
@@ -58,6 +59,11 @@ export default defineConfigWithTheme<ThemeConfig>({
         }, link: "https://mas.to/@shengxj"
       }
     ],
+    lastUpdatedText:"更新时间",
+    editLink: {
+      pattern: 'https://github.com/shengxinjing/fe-advanced-interview/docs/:path',
+      text: '编辑页面'
+    },
     sidebar: {
       '/': [
         {
