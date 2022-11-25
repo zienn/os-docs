@@ -29,7 +29,7 @@ const { site,theme } = useData()
 
 
 
-<img :src="theme.me.wechat" width="280">
+<!-- <img :src="theme.me.wechat" width="280"> -->
 
 
 ## 大圣前端私教课

@@ -1,29 +1,54 @@
 <script setup lang="ts">
-import { useData,useRoute,useRouter } from 'vitepress';
+import { ref } from 'vue'
+import { useData, useRoute, useRouter } from 'vitepress';
 import DefaultTheme from 'vitepress/theme'
 const data = useData()
 const route = useRoute()
 const router = useRouter()
-console.log(data,route,router)
 const { Layout } = DefaultTheme
+const { theme } = data
+
+const isShowWechat = ref(location.search.indexOf('hide') === -1)
 </script>
 
 <template>
   <Layout>
-    <!-- <template #aside-outline-before> -->
-      <!-- My custom sidebar top content -->
-    <!-- </template> -->
+    <template #aside-outline-after>
+      <div v-if="isShowWechat" class="about-me">
+        <p class="item">扫码联系我</p>
+        <p class="item">学习 & 咨询</p>
+        <img :src="theme.me.wechat" alt="">
+
+        <p class="item">
+          <a target="_blank" href="https://appx496fyc38425.h5.xiaoeknow.com/p/decorate/homepage">我的课程首页</a>
+        </p>
+      </div>
+    </template>
 
 
-    <template #aside-top><slot name="aside-top" />1</template>
-      <template #aside-bottom><slot name="aside-bottom" />2</template>
-      <template #aside-outline-before><slot name="aside-outline-before" />3</template>
-      <template #aside-outline-after><slot name="aside-outline-after" />4</template>
-      <template #aside-ads-before><slot name="aside-ads-before" />5</template>
-      <template #aside-ads-after><slot name="aside-ads-after" />6</template>
   </Layout>
 </template>
+<style scoped>
+.about-me {
+  padding: 16px;
+  font-size: 14px;
+  /* text-align: center; */
+}
+.about-me p{
+  margin: 5px 0;
+}
+.about-me a {
+  font-weight: 500;
+  color: var(--vp-c-brand);
+  text-decoration-style: dotted;
+  transition: color 0.25s;
+}
 
+.about-me img {
+  width: 150px;
+  margin-left:-8px;
+}
+</style>
 <!-- 
 <template>
   <div v-if="frontmatter.layout !== false" class="Layout">

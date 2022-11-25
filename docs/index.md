@@ -13,27 +13,21 @@ hero:
     src: https://cdn.jsdelivr.net/gh/shengxinjing/static/coding.svg
     alt: challenges
   actions:
+    # - theme: brand
+    #   text: 使用说明
+    #   link: /desc
     - theme: brand
-      text: 使用说明
-      link: /desc
-    - theme: alt
       text: 前端面试
-      link: /js
+      link: /interview/
     - theme: alt
       text: 玩转Vue3
-      link: /js
+      link: /vue/
     - theme: alt
       text: 玩转React18
-      link: /ts
+      link: /react/
     - theme: alt
-      text: 企业级项目实战
-      link: /vue
-    - theme: alt
-      text: 框架源码解析
-      link: /react
-    - theme: alt
-      text: Node
-      link: /node
+      text: 源码漫游记
+      link: /source/
 
 features:
   - title: 选题丰富
