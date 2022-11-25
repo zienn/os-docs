@@ -64,7 +64,6 @@ export default defineConfigWithTheme<ThemeConfig>({
           text:'面试题',
           items:[
             {text:'面试题',link:'/interview/'},
-            {text:'面试题',link:'/interview/'},
           ]
         },
         {
@@ -78,10 +77,11 @@ export default defineConfigWithTheme<ThemeConfig>({
           collapsible: true,
           // collapsed: true,
           items: [
+            { text: "Vue学习之路", link: "/vue/" },
             {
-              text: "入门笔记1",
+              text: "入门",
               items: [
-                { text: '入门学习1', link: '/vue/' }
+                { text: '入门学习', link: '/vue/intro' }
               ]
             }
           ]

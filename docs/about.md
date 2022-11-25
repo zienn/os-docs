@@ -48,7 +48,16 @@ const { site,theme } = useData()
    - 一次性掌握前端热门框架原理 
    - Vue3 + React + Vite + Rollup 源码手写 ...
    - Typescript + Pnpm + Monorepo + Vitest
-5. 工程化体系
-6. 性能优化
+5. Node + 工程化体系
+6. 前端性能优化
 7. [玩转Vue3文字专栏@极客时间](http://gk.link/a/10BM3)
+8. 面试刷题辅导
+
+other
+
+1. 玩转Web3
+2. 玩转Three.js
+3. 玩转Rust
+4. 玩转小程序
+5. 如何做开源
 
