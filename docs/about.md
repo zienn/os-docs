@@ -34,17 +34,21 @@ const { site,theme } = useData()
 
 ## 大圣前端私教课
 
-首页的知识体系，从面试摸底 给你制定学习路线图 + 课程  帮你成功进阶前端
-@ todo  录制中
+从1V1面试摸底 给你制定学习路线图 + 课程 + 导师辅导  帮你成功进阶前端
+
 
 ## 体系课
 私教课的部分模块单独拆分
 
-1. 前端算法课，目标leetcode200题
-2. Vue+ Typescript 实战课、
-3. Vue3源码手写+剖析
-4. React+ Typescript 实战课
-5. React源码手写+剖析
-6. 工程化体系
-7. 性能优化
+1. [前端啃算法](https://blc.xet.tech/s/2Ajvex)
+   - Leetcode200题，掌握刷题公式，大厂面试必杀技
+2. Vue+ Typescript 实战课
+3. React+ Typescript 实战课
+4. [前端源码漫游记](https://blc.xet.tech/s/3zmqj7)
+   - 一次性掌握前端热门框架原理 
+   - Vue3 + React + Vite + Rollup 源码手写 ...
+   - Typescript + Pnpm + Monorepo + Vitest
+5. 工程化体系
+6. 性能优化
+7. [玩转Vue3文字专栏@极客时间](http://gk.link/a/10BM3)
 

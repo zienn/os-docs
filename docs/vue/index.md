@@ -1,6 +1,11 @@
-# Vue 挑战题
+# 玩转Vue3
 
-推荐大家直接在StackBlitz上在线写代码，这样可以直接看到效果，不用下载代码到本地运行，欢迎大家持续贡献Vue相关的测试题，我也会录制配套的解答视频
+✅
 
+1. Vuejs入门
+2. Pinia
+3. Vue-router
+4. 企业级项目实战
+5. 组件库设计
+6. 原理和源码
 
-题目来源  [https://github.com/webfansplz/vuejs-challenges](https://github.com/webfansplz/vuejs-challenges)

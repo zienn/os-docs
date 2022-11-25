@@ -1,5 +1,5 @@
 ---
-aside: false
+aside: true
 ---
 # 热身
 

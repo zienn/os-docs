@@ -1,14 +1,26 @@
 <script setup lang="ts">
+import { useData,useRoute,useRouter } from 'vitepress';
 import DefaultTheme from 'vitepress/theme'
-
+const data = useData()
+const route = useRoute()
+const router = useRouter()
+console.log(data,route,router)
 const { Layout } = DefaultTheme
 </script>
 
 <template>
   <Layout>
-    <template #aside-outline-before>
-      My custom sidebar top content
-    </template>
+    <!-- <template #aside-outline-before> -->
+      <!-- My custom sidebar top content -->
+    <!-- </template> -->
+
+
+    <template #aside-top><slot name="aside-top" />1</template>
+      <template #aside-bottom><slot name="aside-bottom" />2</template>
+      <template #aside-outline-before><slot name="aside-outline-before" />3</template>
+      <template #aside-outline-after><slot name="aside-outline-after" />4</template>
+      <template #aside-ads-before><slot name="aside-ads-before" />5</template>
+      <template #aside-ads-after><slot name="aside-ads-after" />6</template>
   </Layout>
 </template>
 
