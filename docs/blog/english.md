@@ -1,0 +1,25 @@
+# 看官网学英语
+
+我的英语也比较烂，最近准备记录一下学英语的过程
+
+除了强化单词之外，我通过阅读一些开源框架的官网来提高一下阅读和表达能力，编程英语两不误，欢迎大家一起
+
+[讨论区](https://github.com/shengxinjing/fe-advanced-interview/discussions/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0)
+
+1. [Vue3](https://vuejs.org/)
+2. [React](https://beta.reactjs.org/)
+3. [Nuxt](https://nuxt.com/v3)
+4. [Next](https://nextjs.org/)
+5. [Nest](https://nestjs.com/)
+6. 英文JS书
+   1. @todo
+
+
+## 单词 & 名词解释
+
+### Vue3
+
+
+### Native speakers
+
+adjacent elaborate instructors intrigues phrase illustrated contextual usage ethnic jargon slang

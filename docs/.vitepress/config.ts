@@ -74,41 +74,66 @@ export default defineConfigWithTheme<ThemeConfig>({
     sidebar: {
       '/': [
         {
+          text:'文章',
+          items:[
+            {text:'看官网学英语',link:'/blog/english'},
+            {text:'ikun',link:'/blog/ikun'},
+          ]
+        },
+        {
           text:'面试题',
           items:[
             {text:'面试题',link:'/interview/'},
           ]
         },
         {
-          text:'文章',
-          items:[
-            {text:'ikun',link:'/blog/ikun'},
-          ]
-        },
-        {
-          text: "玩转Vue3",
+          text: '玩转Vue3',
+          // link: "/react/",
           collapsible: true,
-          // collapsed: true,
+          collapsed: true,
           items: [
-            { text: "Vue学习之路", link: "/vue/" },
             {
-              text: "入门",
-              items: [
-                { text: '入门学习', link: '/vue/intro' }
+              text: 'Vue3学习之路', link: '/vue/'
+            },
+            {
+              text:'实战入门', items:[
+                {text:'Vue入门',link:'/vue/intro'}
               ]
-            }
-          ]
+            },
+            {
+              text:'企业级实战', items:[
+                {text:'Typescript',link:'/vue/ts'}
+              ]
+            },
+            {
+              text:'组件库入门', items:[
+                {text:'组件库技术栈',link:'/vue/component'}
+              ]
+            },
+          ],
         },
         {
           text: '玩转React18',
-          link: "/react/",
+          // link: "/react/",
           collapsible: true,
-          // collapsed: true,
+          collapsed: true,
           items: [
             {
-              text: '开发步骤', items: [
-                { text: '测试', link: "/vue/" },
-                { text: '测试', link: "/vue/" },
+              text: 'React学习之路', link: '/react/'
+            },
+            {
+              text:'实战入门', items:[
+                {text:'React入门',link:'/react/intro'}
+              ]
+            },
+            {
+              text:'企业级实战', items:[
+                {text:'Typescript',link:'/react/ts'}
+              ]
+            },
+            {
+              text:'组件库入门', items:[
+                {text:'组件库技术栈',link:'/react/component'}
               ]
             },
           ],

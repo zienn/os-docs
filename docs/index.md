@@ -18,7 +18,7 @@ hero:
     #   link: /desc
     - theme: brand
       text: 前端面试
-      link: /interview/desc
+      link: /interview/
     - theme: alt
       text: 玩转Vue3
       link: /vue/
