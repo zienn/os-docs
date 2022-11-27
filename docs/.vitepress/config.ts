@@ -18,7 +18,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     },
     logo: 'https://cdn.jsdelivr.net/gh/shengxinjing/static/woniu.png',
     nav: [
-      { text: '🔥面试题', link: '/interview/desc' },
+      { text: '🔥面试题', link: '/interview/' },
       { text: '玩转Vue3', link: '/vue/' },
       { text: '玩转React18', link: '/react/' },
       { text: '源码漫游记', link: '/source/' },

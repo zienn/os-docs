@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref ,onMounted} from 'vue'
 import { useData, useRoute, useRouter } from 'vitepress';
 import DefaultTheme from 'vitepress/theme'
 const data = useData()
@@ -8,7 +8,11 @@ const router = useRouter()
 const { Layout } = DefaultTheme
 const { theme } = data
 
-const isShowWechat = ref(location.search.indexOf('hide') === -1)
+const isShowWechat = ref(false)
+
+onMounted(()=>{
+  isShowWechat.value = location.search.indexOf('hide') === -1
+})
 </script>
 
 <template>
