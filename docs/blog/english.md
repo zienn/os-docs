@@ -23,3 +23,8 @@
 ### Native speakers
 
 adjacent elaborate instructors intrigues phrase illustrated contextual usage ethnic jargon slang
+
+arduous reputation aspirations pursuit
+rural distractions pupils form innovatively academic qualifications indicator upright conduct autonomy
+
+rote memorization | repetitively | induce cramming | core curriculum | irrespective | 
