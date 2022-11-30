@@ -8,7 +8,7 @@ function play1(){
 function play2(){
     play(2)
 }
-function play(type){
+function play(type=2){
   if(word && word.children){
     const url = `https://dict.youdao.com/dictvoice?audio=${word.children}&type=${type}`
     const audio = new Audio(url)
@@ -21,8 +21,8 @@ function play(type){
 <template>
   <div class="it-words" @click="pronunciation">
     <slot></slot>
-    <span class="tip" @click="play1()">英</span>
-    <span class="tip" @click="play2()">美</span>
+    <span class="tip" @click="play()">👂</span>
+    <!-- <span class="tip" @click="play2()">美</span> -->
   </div>
 </template>
 <style scoped>
