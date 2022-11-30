@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme'
 import BFrame from './BFrame.vue'
 import MyLayout from './MyLayout.vue'
 import NotFound from './NotFound.vue'
+import Word from './Word.vue'
 import './theme.css'
 export default {
   ...DefaultTheme,
@@ -9,6 +10,7 @@ export default {
   Layout:MyLayout,
   enhanceApp({ app, router, siteData }) {
     app.component('BFrame',BFrame)
+    app.component('Word',Word)
     // baidutongji
     var _hmt = _hmt || [];
     if(process.env.NODE_ENV === 'production' && typeof window !=='undefined'){
