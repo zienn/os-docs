@@ -7,13 +7,13 @@
 | 单词       | 翻译  | 
 | ---------------- | :---: |
 | access           | 权限  |
-| <word>git</word> |   |
-| <word>exclamatory</word> | 感叹号  |
+| <Word>git</Word> |   |
+| <Word>exclamatory</Word> | 感叹号  |
 | 简历吹自己的词 |   |
-| <word>Approachable</word> | 平易近人  |
-| <word>Creative </word> | 有创造力  |
-| <word>Responsible</word> | 有责任心  |
-| <word>Hardworking</word> | 努力工作  |
+| <Word>Approachable</Word> | 平易近人  |
+| <Word>Creative </Word> | 有创造力  |
+| <Word>Responsible</Word> | 有责任心  |
+| <Word>Hardworking</Word> | 努力工作  |
 
 
 ## 短语
