@@ -27,6 +27,7 @@
 | 你需要系统的思考，你做的这个事的价值是什么     |   You need to be able to think systematically. What is the value of what you do?    |  
 | 你最痛苦的时候，恰恰就是你成长最快的时候，加油| When you are the most painful, you are actually growing the fastest. come on|
 | 在字节，你需要学会如何去学习，而不是学习什么| In ByteDance, you need to learn how to learn, not what to learn|
+|| <Word>I don’t want to narrow my mind and consider myself as a front-end developer only</Word>|
 
 ## tips
 
