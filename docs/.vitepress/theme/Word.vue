@@ -2,26 +2,19 @@
 import { useSlots } from 'vue';
 const [word] = useSlots().default()
 
-async function pronunciation(){
-  if(word && word.children){
-
-  }
-}
 function play1(){
-  if(word && word.children){
-    play(word,1)
-  } 
+    play(1)
 }
 function play2(){
-  if(word && word.children){
-    play(word,2)
-  } 
+    play(2)
 }
-function play(word,type){
-  const url = `https://dict.youdao.com/dictvoice?audio=${word.children}&type=${type}`
-  const audio = new Audio(url)
-  // audio.addEventListener
-  audio.play()
+function play(type){
+  if(word && word.children){
+    const url = `https://dict.youdao.com/dictvoice?audio=${word.children}&type=${type}`
+    const audio = new Audio(url)
+    // audio.addEventListener
+    audio.play()
+  }
 }
 </script>
 
