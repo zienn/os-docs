@@ -9,14 +9,18 @@
 
 | 单词 （拼错 or 不好发音）     | 翻译  | 
 | ---------------- | :---: |
-| <Word>exclamatory</Word> | `!`感叹号  |
+| <Word>exclamation point</Word> | `!`感叹号  |
 | <Word>hyphen</Word> | `-`连字号 |
 | <Word>colon</Word> | `:`冒号 |
+| <Word>semicolon</Word> | `;`分号 |
 | <Word>parenthesis</Word> | `()`圆括号 |
 | <Word>square bracket</Word> | `[]`方括号 |
-| <Word>brace</Word> | `{}`花括号 |
+| <Word>curly brace</Word> | `{}`花括号 |
 | <Word>asterisk</Word> | `*`星号 |
-| <Word>carat</Word> | `^` |
+| <Word>caret</Word> | `^` |
+| <Word>ampersand</Word> | `&` |
+| <Word>backtick</Word> | <code>`</code>反引号 |
+| <Word>tilde</Word> | `~` |
 | 简历吹自己的词 |   |
 | <Word>Approachable</Word> | 平易近人  |
 | <Word>Creative </Word> | 有创造力  |
