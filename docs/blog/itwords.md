@@ -9,18 +9,26 @@
 
 | 单词 （拼错 or 不好发音）     | 翻译  | 
 | ---------------- | :---: |
+| <Word>privacy</Word> | 隐私  |
+| <Word>access</Word> | 访问权限  |
 | <Word>exclamation point</Word> | `!`感叹号  |
 | <Word>hyphen</Word> | `-`连字号 |
+| <Word>semicolon</Word> | `;`分号|
 | <Word>colon</Word> | `:`冒号 |
 | <Word>semicolon</Word> | `;`分号 |
+| <Word>pound</Word> | `#`井号 |
 | <Word>parenthesis</Word> | `()`圆括号 |
 | <Word>square bracket</Word> | `[]`方括号 |
 | <Word>curly brace</Word> | `{}`花括号 |
 | <Word>asterisk</Word> | `*`星号 |
 | <Word>caret</Word> | `^` |
-| <Word>ampersand</Word> | `&` |
+| <Word>slash</word> | `/` 斜线 |
+| <Word>back slash</Word> | `\` 反斜线 |
+| <Word>tilde</Word> | `~` 波浪线 |
+| <Word>ampersand</Word> | `&` and符 |
+| <Word>pipe</Word> | `\|` 竖杠 |
+| <Word>underscore</Word> | `_` 下划线 |
 | <Word>backtick</Word> | <code>`</code>反引号 |
-| <Word>tilde</Word> | `~` |
 | 简历吹自己的词 |   |
 | <Word>Approachable</Word> | 平易近人  |
 | <Word>Creative </Word> | 有创造力  |
@@ -32,6 +40,7 @@
 
 | 中文        |      翻译      | 
 | ------------- | :----------- | 
+| 这不是bug是功能     | @todo | 
 | !的作用是给布尔值取反     |   @todo    |   
 | Vuejs是一个响应式前端框架     |   @todo    |   
 | 裁员     |   <Word>Send talents to the society</Word>    |   
@@ -42,7 +51,6 @@
 |其实，我对你是有一些失望的。当初给你定级P6，是高于你面试时的水平的。我是希望进来后，你能够拼一把，快速成长起来的。||
 |xx这个层级，不是把事情做好就可以的。你需要有体系化思考的能力。|@todo|
 |你做的事情，他的价值点在哪里?||
-| 你最痛苦的时候，恰恰就是你成长最快的时候，加油| ~~When you are the most painful, you are actually growing the fastest. come on~~<Word>the moments that you grow fastest are those when you suffer the most,so keep moving </Word>|
 |你是否作出了壁垒形成了核心竞争力?||
 |你做的事情，和公司内其他团队的差异化在哪里?你的事情，是否沉淀了一套可复用的物理资料和方法论?|@todo|
 |为什么是你来做，其他人不能做吗?|@todo|
@@ -53,6 +61,7 @@
 |马上要到年底了，加把劲儿||
 |你看咱们团队的XX去年晋升之前，可以一整年都在项目室打地铺的。||
 |成长，一定是伴随着痛苦的，||
+| 你最痛苦的时候，恰恰就是你成长最快的时候，加油| ~~When you are the most painful, you are actually growing the fastest. come on~~<Word>the moments that you grow fastest are those when you suffer the most,so keep moving </Word>|
 || <Word>I don’t want to narrow my mind and consider myself as a front-end developer only</Word>|
 
 ## tips
