@@ -6,8 +6,8 @@
 
 | 单词 （拼错 or 不好发音）     | 翻译  | 
 | ---------------- | :---: |
-| <Word>access</Word> | 访问权限  |
 | <Word>privacy</Word> | 隐私  |
+| <Word>access</Word> | 访问权限  |
 | <Word>exclamatory</Word> | `!`感叹号  |
 | <Word>hyphen</Word> | `-`连字号 |
 | <Word>semicolon</Word> | `;`分号|
