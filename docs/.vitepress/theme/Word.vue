@@ -20,7 +20,9 @@ function play(type){
 
 <template>
   <div class="it-words" @click="pronunciation">
-    <slot></slot>
+    <span>
+      <slot></slot> 
+    </span>
     <span class="tip" @click="play1()">英</span>
     <span class="tip" @click="play2()">美</span>
   </div>
