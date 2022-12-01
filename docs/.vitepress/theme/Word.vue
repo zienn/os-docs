@@ -34,13 +34,12 @@ function play(type){
 .tip{
     color: var(--vp-badge-tip-text);
     display: inline-block;
-    margin-left: 5px;
+    margin-left: 8px;
     border: 1px solid var(--vp-c-brand);
     border-radius: 10px;
-    padding: 0 8px;
+    padding: 0 2px;
     line-height: 18px;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 600;
-    transform: translateY(-2px);
 }
 </style>
