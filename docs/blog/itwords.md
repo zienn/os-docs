@@ -4,6 +4,7 @@
 
 ## 单词
 
+<<<<<<< Updated upstream
 | 单词 （拼错 or 不好发音）     | 翻译  | 
 | ---------------- | :---: |
 | access           | 权限  |
@@ -14,6 +15,23 @@
 | <Word>Creative </Word> | 有创造力  |
 | <Word>Responsible</Word> | 有责任心  |
 | <Word>Hardworking</Word> | 努力工作  |
+=======
+| 单词 （拼错 or 不好发音）     | 翻译  |  | |
+| ---------------- | :---: |:---: |:---: |
+| access           | 权限  | | |
+| <Word>git</Word> |   | <Word>exclamatory</Word> | 感叹号  |
+| <Word>hyphen</Word> | 连字号（短横线） | <Word>semicolon</Word> | 分号 |
+| <Word>colon</Word> | 冒号 |<Word>sharp</Word> | 井号 |
+| <Word>parenthesis</Word> | 圆括号 |<Word>square bracket</Word> | 方括号 |
+| <Word>brace</Word> | 花括号 |<Word>asterisk</Word> | 星号 |
+| <Word>carat</Word> | `^` |<Word>slash</word> | `/` 斜线 |
+| <Word>back slash</Word> | `\` 反斜线 |<Word>tilde</Word> | `~` 波浪线 |
+| <Word>ampersand</Word> | `&` and符 |<Word>pipe</Word> | `\|` 竖杠 |
+| <Word>underscore</Word> | `_` 下划线 | | |
+| 简历吹自己的词 |   | | |
+| <Word>Approachable</Word> | 平易近人  | <Word>Creative </Word> | 有创造力  |
+| <Word>Responsible</Word> | 有责任心  |<Word>Hardworking</Word> | 努力工作  |
+>>>>>>> Stashed changes
 
 
 ## 短语
