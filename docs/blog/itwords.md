@@ -45,7 +45,6 @@
 | 你需要系统的思考，你做的这个事的价值是什么     |   You need to be able to think systematically. What is the value of what you do?    |  
 |能干的干，不干就走|<Word>Do it if you can,get out if you don't</Word>|
 |XX是年轻人的福报| <Word>XX is a blessing for young people</Word>|
-| 你最痛苦的时候，恰恰就是你成长最快的时候，加油| When you are the most painful, you are actually growing the fastest. come on<Word>the moments that you grow fastest are those when you suffer the most,so keep moving </Word>|
 | 在字节，你需要学会如何去学习，而不是学习什么| <Word>In ByteDance, you need to learn how to learn, not what to learn</Word>|
 |其实，我对你是有一些失望的。当初给你定级P6，是高于你面试时的水平的。我是希望进来后，你能够拼一把，快速成长起来的。||
 |xx这个层级，不是把事情做好就可以的。你需要有体系化思考的能力。|@todo|
@@ -59,7 +58,8 @@
 |另外，提醒一下，你的产出，和同层级比，是有些单薄的||
 |马上要到年底了，加把劲儿||
 |你看咱们团队的XX去年晋升之前，可以一整年都在项目室打地铺的。||
-|成长，一定是伴随着痛苦的，当你最痛苦的时候其实才是你成长最快的时候, 加油||
+|成长，一定是伴随着痛苦的，||
+| 你最痛苦的时候，恰恰就是你成长最快的时候，加油| When you are the most painful, you are actually growing the fastest. come on<Word>the moments that you grow fastest are those when you suffer the most,so keep moving </Word>|
 || <Word>I don’t want to narrow my mind and consider myself as a front-end developer only</Word>|
 
 ## tips
