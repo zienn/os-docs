@@ -12,22 +12,24 @@
 | ---------------- | :---: |
 | <Word>privacy</Word> | 隐私  |
 | <Word>access</Word> | 访问权限  |
-| <Word>exclamatory</Word> | `!`感叹号  |
+| <Word>exclamation point</Word> | `!`感叹号  |
 | <Word>hyphen</Word> | `-`连字号 |
 | <Word>semicolon</Word> | `;`分号|
 | <Word>colon</Word> | `:`冒号 |
-| <Word>sharp</Word> | `#`井号 |
+| <Word>semicolon</Word> | `;`分号 |
+| <Word>pound</Word> | `#`井号 |
 | <Word>parenthesis</Word> | `()`圆括号 |
 | <Word>square bracket</Word> | `[]`方括号 |
-| <Word>brace</Word> | `{}`花括号 |
+| <Word>curly brace</Word> | `{}`花括号 |
 | <Word>asterisk</Word> | `*`星号 |
-| <Word>carat</Word> | `^` |
+| <Word>caret</Word> | `^` |
 | <Word>slash</word> | `/` 斜线 |
 | <Word>back slash</Word> | `\` 反斜线 |
 | <Word>tilde</Word> | `~` 波浪线 |
 | <Word>ampersand</Word> | `&` and符 |
 | <Word>pipe</Word> | `\|` 竖杠 |
 | <Word>underscore</Word> | `_` 下划线 |
+| <Word>backtick</Word> | <code>`</code>反引号 |
 | 简历吹自己的词 |   |
 | <Word>Approachable</Word> | 平易近人  |
 | <Word>Creative </Word> | 有创造力  |
