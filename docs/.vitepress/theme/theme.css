@@ -23,3 +23,11 @@
   filter:none;
   -webkit-filter: none;
 } */
+
+.btn{
+  padding:5px 8px;
+  color:white;
+  background: var(--vp-c-brand);
+  border: 1px solid var(--vp-c-brand);
+  border-radius: 4px;
+}

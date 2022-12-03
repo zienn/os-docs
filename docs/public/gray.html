@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+  <style>
+    .btn {
+      margin:10px;
+      padding: 5px 8px;
+      color: white;
+      background: #42b883;
+      border: 1px solid #42b883;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .item{
+      display:inline-block;
+      width:150px;
+      height:150px;
+      border-radius: 10px;
+      margin:10px;
+      background: #42b883;
+    }
+    .app{
+      display: flex;
+    }
+    .footer{
+      width:600px;
+      height:50px;
+      background: #42b883;
+      margin:10px;
+    }
+    .sidebar{
+      flex:1;
+    }
+    .content{
+      flex:4;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+    <button class="btn" id="set-gray">置灰</button>
+  </div>
+  <hr>
+
+  <div class="app">
+    <div class="sidebar">
+      <div class="title"></div>
+      <div class="content">
+        <div class="item"></div>
+        <img height="150px"  class="not-gray3" src="https://cdn.jsdelivr.net/gh/shengxinjing/static/design.png" alt="">
+        <div class="item">
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="page">
+        <div class="item"></div>
+        <div class="item not-gray3"></div>
+      </div>
+      <div class="page">
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+      <div class="page">
+        <button class="btn" id="not-gray2">按钮3</button>
+      </div>
+    </div>
+    </div>
+    <div class="footer">
+    </div>
+  </div>
+
+
+  <script>
+    let style = document.createElement('style')
+    let graySelector = 'gray-filter'
+    style.setAttribute('type', 'text/css')
+    // style.setAttribute('data-vite-dev-id', id)
+    style.textContent = `.${graySelector}{
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-filter: gray;
+  filter: gray;
+  -webkit-filter: progid:dximagetransform.microsoft.basicimage(grayscale=1);
+  filter: progid:dximagetransform.microsoft.basicimage(grayscale=1);
+}`
+    document.head.appendChild(style)
+
+    let root = document.querySelector('html')
+    let btn = document.querySelector('#set-gray')
+    btn && btn.addEventListener('click', () => {
+      // setAllGray()
+      setGray()
+    }, false)
+
+    function toggleClassName(el,name){
+      if (el.className.indexOf(name) > -1) {
+        el.className = el.className.replace(name, '').trim()
+      } else {
+        el.className = [el.className, name].join(' ')
+      }
+    }
+
+    function setAllGray() {
+      toggleClassName(root,graySelector)
+    }
+    function setGray() {
+      let body = document.body
+      let selectors = ['#not-gray2', '.not-gray3']
+      // let selectors = ['.banner-block']
+      selectors.forEach(selector=>{
+        let doms = [...document.querySelectorAll(selector)].forEach(v=>{
+          if(!v) return 
+          v.colorful = true
+          let parent = v.parentNode
+          while(parent && !parent.colorful){
+            parent.colorful = true
+            parent = parent.parentNode
+          }
+        })
+      })
+      walk(body)
+      function walk(node){
+        if(node.nodeType!==1) return 
+        if(!node.colorful){
+          toggleClassName(node,graySelector)
+          return
+        }
+        for (var i = 0; i < node.children.length; i++) {  
+          var child = node.children[i]; 
+          walk(child)
+        }  
+      }
+    }
+
+
+  </script>
+
+</body>
+
+</html>

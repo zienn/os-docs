@@ -29,8 +29,10 @@ function play(type){
 </template>
 <style scoped>
 .it-words{
+  display: inline-block;
   cursor: pointer;
   color:var(--vp-c-brand);
+  margin-right:10px;
 }
 
 .tip{

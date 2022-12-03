@@ -22,9 +22,14 @@
 
 ### Native speakers
 
-adjacent elaborate instructors intrigues phrase illustrated contextual usage ethnic jargon slang
+<script setup>
+const education = 'arduous process,reputation,aspiration,pursuit,rural,distractions,pupils,form,innovatively,academic,qualifications,lateral thinking,standardised,rote memorisation,repetitively,induce cramming,conduct,autonomy,role model'.split(',')
+</script>
 
-arduous reputation aspirations pursuit
-rural distractions pupils form innovatively academic qualifications indicator upright conduct autonomy
+<Word v-for="word in education">{{word}}</Word>
+
+elaborate instructors intrigues phrase illustrated contextual usage ethnic jargon slang
+
+indicator upright conduct autonomy
 
 rote memorization | repetitively | induce cramming | core curriculum | irrespective | 

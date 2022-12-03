@@ -7,6 +7,7 @@
 
 单词发音来自有道词典，点击单词默认英音
 
+<Word>Vue (pronounced /vjuː/, like view) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and JavaScript and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be they simple or complex.</Word>
 | 单词 （拼错 or 不好发音）     | 翻译  | 
 | ---------------- | :---: |
 | <Word>privacy</Word> | 隐私  |
