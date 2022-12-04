@@ -63,7 +63,9 @@ html::before {
     联系作者
   </a>
   <div>
-    <button class="btn" id="set-gray">置灰</button>
+    <button class="btn" id="set-gray-all">全部置灰</button>
+    <button class="btn" id="set-gray-first">首屏置灰</button>
+    <button class="btn" id="set-gray">部分置灰</button>
   </div>
   <hr>
 
@@ -112,15 +114,38 @@ html::before {
   filter: gray;
   -webkit-filter: progid:dximagetransform.microsoft.basicimage(grayscale=1);
   filter: progid:dximagetransform.microsoft.basicimage(grayscale=1);
-}`
+}
+.gray-first {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.gray-first::before {
+    content: "";
+    position: absolute;
+    backdrop-filter: grayscale(100%);
+    pointer-events: none;
+    inset: 0;
+    z-index: 100;
+} 
+`
     document.head.appendChild(style)
 
     let root = document.querySelector('html')
     let btn = document.querySelector('#set-gray')
-    btn && btn.addEventListener('click', () => {
-      // setAllGray()
-      setGray()
-    }, false)
+let btnFirst = document.querySelector('#set-gray-first')
+let btnAll = document.querySelector('#set-gray-all')
+
+    btnAll && btnAll.addEventListener('click', () => {
+  setAllGray()
+}, false)
+btn && btn.addEventListener('click', () => {
+  setGray()
+}, false)
+btnFirst && btnFirst.addEventListener('click', () => {
+  toggleClassName(root,'gray-first' )
+}, false)
+
 
     function toggleClassName(el,name){
       if (el.className.indexOf(name) > -1) {
