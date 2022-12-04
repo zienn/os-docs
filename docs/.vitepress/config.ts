@@ -35,7 +35,6 @@ function getDirctSidebar(pathname: string) {
   })
 }
 
-console.log(getDirctSidebar('blog'))
 export default defineConfigWithTheme<ThemeConfig>({
   title: '大圣前端进阶指南',
   description: '大圣前端进阶指南|Vue3|React|Vite|Cli|项目实战',

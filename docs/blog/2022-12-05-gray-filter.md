@@ -3,7 +3,7 @@
 
 [在线体验](https://shengxinjing.cn/gray.html)
 
-[视频链接]()
+[视频链接](https://shengxinjing.cn/gray.html)
 
 最近哀悼日，网页端如何一键变灰已经有很多实现方式了，但是我看到一个twitter很有意思，是一个不错的面试题
 
