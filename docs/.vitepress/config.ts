@@ -1,7 +1,41 @@
 import { defineConfigWithTheme } from 'vitepress'
 import type { Config as ThemeConfig } from '@vue/theme'
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // import taskLists from 'markdown-it-task-lists'
 
+function getDirctSidebar(pathname: string) {
+  const p = path.resolve(__dirname, '../', pathname)
+  const dirct = fs.readdirSync(p).filter(v=>v.endsWith('.md'))
+  return dirct.map(dir=>{
+    const file = fs.readFileSync(path.resolve(p,dir)).toString()
+    let text = dir
+    let lines = file.split('\n')
+    const line = lines.shift()
+    if(line.startsWith('# ')){
+      text = line.replace('# ','')
+    }else{
+      if(line.startsWith('---')){
+        const index = lines.findIndex(v=>v.startsWith('---'))
+        lines = lines.slice(index+1).filter(v=>v)
+        if(lines[0].startsWith('# ')){
+          text = lines[0].replace('# ','')
+        }
+      }
+    }
+    return {
+      text,
+      link: `/${pathname}/${dir.replace('.md','')}`
+    }
+  })
+}
+
+console.log(getDirctSidebar('blog'))
 export default defineConfigWithTheme<ThemeConfig>({
   title: '大圣前端进阶指南',
   description: '大圣前端进阶指南|Vue3|React|Vite|Cli|项目实战',
@@ -65,10 +99,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       '/': [
         {
           text:'文章',
-          items:[
-            {text:'看官网学英语',link:'/blog/english'},
-            {text:'ikun',link:'/blog/ikun'},
-          ]
+          items:getDirctSidebar('blog')
         },
         {
           text:'面试题',
