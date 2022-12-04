@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 
 function getDirctSidebar(pathname: string) {
   const p = path.resolve(__dirname, '../', pathname)
-  const dirct = fs.readdirSync(p).filter(v=>v.endsWith('.md'))
+  const dirct = fs.readdirSync(p).filter(v=>v.endsWith('.md')).reverse()
   return dirct.map(dir=>{
     const file = fs.readFileSync(path.resolve(p,dir)).toString()
     let text = dir
