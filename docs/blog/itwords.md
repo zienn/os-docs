@@ -4,10 +4,15 @@
 # 程序员相关单词和短语
 
 做一个好好学英语的程序员，左下角【编辑页面】欢迎PR
+```
+Word组件包裹 就可以发音了
+<Word>privacy</Word>
+```
 
 单词发音来自有道词典，点击单词默认英音
 
 <Word>Vue (pronounced /vjuː/, like view) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and JavaScript and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be they simple or complex.</Word>
+
 | 单词 （拼错 or 不好发音）     | 翻译  | 
 | ---------------- | :---: |
 | <Word>privacy</Word> | 隐私  |
