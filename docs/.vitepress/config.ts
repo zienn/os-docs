@@ -11,7 +11,12 @@ const __dirname = path.dirname(__filename);
 
 function getDirctSidebar(pathname: string) {
   const p = path.resolve(__dirname, '../', pathname)
-  const dirct = fs.readdirSync(p).filter(v=>v.endsWith('.md')).reverse()
+  const dirct = fs.readdirSync(p)
+                  .filter(v=>v.endsWith('.md'))
+                  .sort((a, b) => {
+                    if(a==='index.md') return 1
+                    return a>b ? -1 : 1
+                  })
   return dirct.map(dir=>{
     const file = fs.readFileSync(path.resolve(p,dir)).toString()
     let text = dir
@@ -171,11 +176,13 @@ export default defineConfigWithTheme<ThemeConfig>({
           ],
         },
         {
+          text:'前端实战进阶',
+          items:getDirctSidebar('project')
+        },
+        {
           text:"源码漫游记",
           collapsible: true,
-          items:[
-            {text:'源码漫游记', link:'/source/'}
-          ]
+          items:getDirctSidebar('source')
         }
       ],
     },

@@ -4,6 +4,7 @@ import MyLayout from './MyLayout.vue'
 import NotFound from './NotFound.vue'
 import Word from './Word.vue'
 import './theme.css'
+import './test'
 export default {
   ...DefaultTheme,
   NotFound,
