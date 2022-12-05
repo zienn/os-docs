@@ -20,16 +20,16 @@ const { site,theme } = useData()
 
 # 关于我
 
-我是爱代码爱生活的大圣，现在是自由职业的状态，独立开发者 && 讲师，欢迎加我聊天
+你好，我是大圣，现在是自由职业程序员，独立开发者 && 讲师，欢迎关注我公众号
 
-你可以收获前端学习小秘籍，一起学习`前端进阶`的知识，我会的都可以聊
+你可以收获前端学习小秘籍，一起学习`前端进阶`的知识
+
+无论是想职场进阶，还是不想上班，都可以聊聊
 
 
 <!-- <VPTeamMembers size="medium" :members="members" /> -->
 
-
-
-<img :src="theme.me.wechat" width="280">
+<img :src="theme.me.gongzhonghao" width="280">
 
 
 ## 大圣前端私教课

@@ -47,17 +47,18 @@ export default defineConfigWithTheme<ThemeConfig>({
     me: {
       // wechat:"https://cdn.jsdelivr.net/gh/shengxinjing/static/wechat.jpg"
       // wechat: "https://cdn.jsdelivr.net/gh/shengxinjing/static/jingu2.png"
-      wechat: "/wechat2.png"
+      wechat: "/wechat2.png",
+      gongzhonghao: "/gongzhonghao.jpeg"
       // wechat:"https://cdn.jsdelivr.net/gh/shengxinjing/static/xiao3.jpg"
     },
     logo: 'https://cdn.jsdelivr.net/gh/shengxinjing/static/woniu.png',
     nav: [
+      { text: '🔥一起进步', link: '/about' },
       { text: '英语', link: '/blog/itwords' },
       { text: '🔥面试题', link: '/interview/' },
       // { text: '玩转Vue3', link: '/vue/' },
       // { text: '玩转React18', link: '/react/' },
       { text: '源码漫游记', link: '/source/' },
-      { text: '🔥一起进步', link: '/about' },
       { text: '路线图', link: 'https://roadmap.shengxinjing.cn/' },
     ],
     
