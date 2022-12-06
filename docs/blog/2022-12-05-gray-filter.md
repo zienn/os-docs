@@ -8,8 +8,6 @@
 
 最近哀悼日，网页端如何一键变灰已经有很多实现方式了，但是我看到一个推文很有意思，是一个不错的面试题
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f3254a889e24b52a0b7ab55065ccdd3~tplv-k3u1fbpfcp-watermark.image?)
-
 ## 一键变灰
 
 这个大部分同学都写了，直接
