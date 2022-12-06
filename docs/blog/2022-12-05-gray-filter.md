@@ -1,3 +1,6 @@
+# 网页置灰方案讨论
+
+如何在网页置灰的前提下，保持部分元素彩色
 
 [在线体验](https://shengxinjing.cn/gray.html)
 
