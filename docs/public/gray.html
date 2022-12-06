@@ -54,6 +54,7 @@ html::before {
     .content{
       flex:4;
     }
+  
 
   </style>
 </head>
@@ -74,15 +75,17 @@ html::before {
       <div class="title"></div>
       <div class="content">
         <div class="item">11111</div>
-        <img height="150px"  class="not-gray3" src="https://cdn.jsdelivr.net/gh/shengxinjing/static/design.png" alt="">
+        <img height="200px"  class="not-gray3" src="https://cdn.jsdelivr.net/gh/shengxinjing/static/design.png" alt="">
         <div class="item">
+          <input type="text">
         </div>
       </div>
     </div>
     <div class="content">
       <div class="page">
         <div class="item"></div>
-        <div class="item not-gray3"></div>
+        <div class="item not-gray3 not-gray">
+        </div>
       </div>
       <div class="page">
         <div class="item"></div>
@@ -90,9 +93,12 @@ html::before {
       </div>
 
       <div class="page">
-        <button class="btn" id="not-gray2">按钮3</button>
+        <button class="btn">按钮3</button>
       </div>
     </div>
+    </div>
+    <div class="item" id="not-gray2">
+      <video src="/ikun/ikun.mp4"  height="280px" controls></video>
     </div>
     <div class="footer"></div>
     <div class="footer"></div>
@@ -105,16 +111,13 @@ html::before {
     let style = document.createElement('style')
     let graySelector = 'gray-filter'
     style.setAttribute('type', 'text/css')
-    // style.setAttribute('data-vite-dev-id', id)
     style.textContent = `.${graySelector}{
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
   -ms-filter: grayscale(100%);
   -o-filter: grayscale(100%);
   filter: grayscale(100%);
-  -webkit-filter: gray;
   filter: gray;
-  -webkit-filter: progid:dximagetransform.microsoft.basicimage(grayscale=1);
   filter: progid:dximagetransform.microsoft.basicimage(grayscale=1);
 }
 .gray-first {
@@ -130,6 +133,10 @@ html::before {
     inset: 0;
     z-index: 100;
 } 
+.not-gray{
+  position: relative;
+  z-index:1000;
+}
 `
     document.head.appendChild(style)
 
@@ -167,7 +174,8 @@ btnFirst && btnFirst.addEventListener('click', () => {
       selectors.forEach(selector=>{
         let doms = [...document.querySelectorAll(selector)].forEach(v=>{
           if(!v) return 
-          v.colorful = true
+
+          v.staycolor = true
           let parent = v.parentNode
           while(parent && !parent.colorful){
             parent.colorful = true
@@ -178,6 +186,7 @@ btnFirst && btnFirst.addEventListener('click', () => {
       walk(body)
       function walk(node){
         if(node.nodeType!==1) return 
+        if(node.staycolor) return 
         if(!node.colorful){
           toggleClassName(node,graySelector)
           return

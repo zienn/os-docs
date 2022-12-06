@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+  <style>
+/* html {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+html::before {
+    content: "";
+    position: absolute;
+    backdrop-filter: grayscale(100%);
+    pointer-events: none;
+    inset: 0;
+    z-index: 100;
+} */
+    .btn {
+      margin:10px;
+      padding: 5px 8px;
+      color: white;
+      background: #42b883;
+      border: 1px solid #42b883;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .item{
+      display:inline-block;
+      width:180px;
+      height:180px;
+      border-radius: 10px;
+      margin:10px;
+      background: #42b883;
+    }
+    .app{
+      display: flex;
+    }
+    .footer{
+      width:600px;
+      height:150px;
+      background: #42b883;
+      margin:10px;
+    }
+    .sidebar{
+      flex:1;
+    }
+    .content{
+      flex:4;
+    }
+html{
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -webkit-filter: gray;
+  filter: gray;
+  -webkit-filter: progid:dximagetransform.microsoft.basicimage(grayscale=1);
+  filter: progid:dximagetransform.microsoft.basicimage(grayscale=1);
+}
+  </style>
+</head>
+
+<body>
+  <a style="display: block;width: 100px;font-size:24px;margin: 0 10px;color:#42b883;"   target="_blank" href="https://shengxinjing.cn/about.html">
+    联系作者
+  </a>
+  <div>
+    <button class="btn" id="set-gray-all">全部置灰</button>
+    <button class="btn" id="set-gray-first">首屏置灰</button>
+    <button class="btn" id="set-gray">部分置灰</button>
+  </div>
+  <hr>
+
+  <div class="app">
+    <div class="sidebar">
+      <div class="title"></div>
+      <div class="content">
+        <div class="item">11111</div>
+        <img height="200px"  class="not-gray3" src="https://cdn.jsdelivr.net/gh/shengxinjing/static/design.png" alt="">
+        <div class="item">
+          <input type="text">
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="page">
+        <div class="item"></div>
+        <div class="item not-gray3">
+        </div>
+      </div>
+      <div class="page">
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
+
+      <div class="page">
+        <button class="btn">按钮3</button>
+      </div>
+    </div>
+    </div>
+    <div class="item" id="not-gray2">
+      <video src="/ikun/ikun.mp4"  height="280px" controls></video>
+    </div>
+    <div class="footer"></div>
+    <div class="footer"></div>
+    <div class="footer"></div>
+    <div class="footer"></div>
+  </div>
+
+
+  <script>
+   
+  </script>
+
+</body>
+
+</html>
