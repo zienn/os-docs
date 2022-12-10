@@ -11,7 +11,7 @@
   "dependencies": {
     "axios": "^1.2.0",
     "dotenv": "^16.0.3",
-    "vitepress": "1.0.0-alpha.20",
+    "vitepress": "^1.0.0-alpha.30",
     "vue": "^3.2.41"
   },
   "keywords": [],

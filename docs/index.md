@@ -2,7 +2,7 @@
 layout: home
 sidebar: false
 
-title: 大圣前端进阶指南
+title: 个人网站
 titleTemplate: 解决前端进阶的难点
 
 hero:
@@ -10,7 +10,7 @@ hero:
   text: 解决前端进阶的难点
   tagline: 面试, 企业级项目, 源码一网打尽
   image:
-    src: https://cdn.jsdelivr.net/gh/shengxinjing/static/coding.svg
+    src: /undraw_writer_q06d.svg
     alt: challenges
   actions:
     # - theme: brand
